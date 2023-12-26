@@ -1,0 +1,3572 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <meta charset="UTF-8">
+    <title>我的 Steam</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+ 
+        /* 头部 */
+        .Header {
+            height: 100px;
+            min-width: 940px;
+            background-color: #171a21;
+            font-family: "Motiva Sans", Sans-serif;
+            font-weight: normal;
+            font-size: 14px;
+ 
+        }
+ 
+        .Header .HeaderContent {
+            width: 940px;
+            height: 100px;
+            margin: 0 auto;
+            color: #c6d4df;
+            position: relative;
+        }
+ 
+        .Header .HeaderContent .Headerlogo {
+            width: 176px;
+            padding-top: 30px;
+            height: 44px;
+        }
+ 
+        .Header .HeaderContent .HeaderMenu {
+            width: 168px;
+            height: 68px;
+            position: absolute;
+            left: 200px;
+            top: 0px;
+            /* background-color: red; */
+ 
+        }
+ 
+        .Header .HeaderContent .HeaderMenu a {
+            text-decoration: none;
+            color: #b8b6b4;
+            padding-top: 45px;
+            padding-left: 7px;
+            padding-right: 7px;
+            padding-bottom: 7px;
+            line-height: 16px;
+            float: left;
+            font-size: 14px;
+        }
+ 
+        .Header .HeaderContent .HeaderMenu a:hover {
+            color: #ffffff;
+        }
+ 
+        .Header .HeaderContent .HeaderMenu a:first-child:hover~.secondOne {
+            display: block;
+        }
+ 
+        /* .Header .HeaderContent .HeaderMenu .secondOne{
+            display: block;
+        } */
+        /* .Header .secondOne:hover{
+            display: block;
+        } */
+        .Header .HeaderContent .HeaderMenu a:nth-child(2):hover~.secondTwo {
+            display: block;
+        }
+ 
+        /* .Header .secondTwo:hover{
+            display: block;
+        } */
+        .Header .HeaderContent .HeaderMenu .secondOne {
+            width: 68px;
+            height: 168px;
+            background: #171a21;
+            padding: 10px 10px 5px 10px;
+            position: absolute;
+            top: 60px;
+            z-index: 8;
+            box-shadow: 3px 3px 5px -3px #000;
+            text-align: left;
+            display: none;
+        }
+ 
+        .Header .HeaderContent .HeaderMenu .secondTwo {
+            width: 68px;
+            height: 148px;
+            background: #171a21;
+            padding: 10px 10px 5px 10px;
+            position: absolute;
+            top: 60px;
+            left: 45px;
+            z-index: 8;
+            box-shadow: 3px 3px 5px -3px #000;
+            text-align: left;
+            display: none;
+        }
+ 
+        .Header .HeaderContent .HeaderMenu .secondOne>a {
+            font-size: 11px;
+            color: #b8b6b4;
+            padding: 6px 10px 6px 0;
+            cursor: pointer;
+        }
+ 
+        .Header .HeaderContent .HeaderMenu .secondTwo>a {
+            font-size: 11px;
+            color: #b8b6b4;
+            padding: 6px 20px 6px 0;
+            cursor: pointer;
+        }
+ 
+        .Header .HeaderContent .HeaderMenu .secondOne>a:hover {
+            color: #ffffff;
+        }
+ 
+        .Header .HeaderContent .HeaderMenu .secondTwo>a:hover {
+            color: #ffffff;
+        }
+ 
+        .Header .HeaderContent .HeaderLoginMenu {
+            position: absolute;
+            right: 100px;
+            top: 6px;
+            /* background-color: red; */
+            line-height: 24px;
+            width: 200px;
+            height: 24px;
+            width: 107px;
+            background-color: #5c7e10;
+            background-image: url("./steam Website/btn_header_installsteam_download.png");
+            background-position: 10px 5px;
+            background-repeat: no-repeat;
+        }
+
+ 
+        .Header .HeaderContent .HeaderLoginMenu a {
+            font-size: 11px;
+            font-family: "Motiva Sans", Sans-serif;
+            padding-left: 35px;
+            padding-right: 9px;
+            color: #e5e4dc;
+            font-weight: normal;
+            text-decoration: none;
+            width: 66px;
+            position: absolute;
+            left: 0;
+        }
+        .Header .HeaderContent .HeaderLoginMenu a:hover{
+            color: #ffff;
+        }
+        .Header .HeaderContent .HeaderLoginMenu .login {
+            font-size: 11px;
+            font-weight: normal;
+            text-decoration: none;
+            color: #b8b6b4;
+            padding: 0 4px;
+            cursor: pointer;
+            position: absolute;
+            left: 110px;
+            width: 40px;
+            max-height: 24px;
+        }
+        .Header .HeaderContent .HeaderLoginMenu .login:hover{
+            color: #ffffff;
+        }
+        .Header .HeaderContent .HeaderLoginMenu .lang {
+            font-size: 11px;
+            font-weight: normal;
+            text-decoration: none;
+            color: #b8b6b4;
+            padding: 0 4px;
+            cursor: pointer;
+            position: absolute;
+            left: 150px;
+            width: 50px;
+            max-height: 24px;
+            background-image: url("./steam Website/btn_arrow_down_padded.png");
+            background-position: 31px 6px;
+            background-repeat: no-repeat;
+        }
+ 
+        /* 内容第一段 */
+ 
+ 
+        .ContentOne {
+            min-width: 972px;
+            height: 4128px;
+ 
+            background-color: #fff;
+            background-image: radial-gradient(circle closest-corner at 40% 0%, #184353 0%, #1F3658 30%, #1B293A 100%);
+        }
+ 
+        /* 用来给后续定位，不会挡道二级菜单 */
+        .kong {
+            position: relative;
+        }
+ 
+        /* 内容第一段，左边小菜单开始 */
+        .ContentOne .leftMenu {
+            width: 210px;
+            height: 924px;
+            /* border: 1px solid red; */
+            position: absolute;
+            top: 31px;
+            left: 55px;
+        }
+ 
+        .ContentOne .leftMenu .leftMenup1 {
+            max-width: 100%;
+        }
+ 
+        .ContentOne .leftMenu ul {
+            list-style: none;
+            color: #c6d4df;
+            font-size: 11px;
+            margin-bottom: 7px;
+            line-height: 16px;
+ 
+        }
+ 
+        .ContentOne .leftMenu ul li {
+            margin: 7px 0 3px 0;
+            line-height: 16px;
+        }
+ 
+        .ContentOne .leftMenu ul li:last-child {
+            margin: 7px 0 14px 0;
+        }
+ 
+        .ContentOne .leftMenu ul li a:hover {
+            color: #fff;
+        }
+ 
+        .ContentOne .leftMenu ul li a {
+            text-decoration: none;
+            color: #66c0f4;
+            font-size: 13px;
+            font-family: "Motiva Sans", Sans-serif;
+        }
+ 
+        .ContentOne .leftMenu ul li div {
+            width: 16px;
+            height: 16px;
+            float: left;
+            margin-right: 8px;
+        }
+ 
+        /* 内容第一段，左边小菜单结束 */
+        /* 内容第一段，顶部导航开始 */
+        .ContentOne .storeNav {
+            position: absolute;
+            top: 24px;
+            left: 290px;
+            height: 35px;
+            width: 940px;
+            margin: 7px 0 7px 0;
+            /* border: 1px solid white; */
+            background-image: linear-gradient(to right, #3B6490, #2B4B84, #0F216E);
+            z-index: 5;
+        }
+ 
+        .ContentOne .storeNav ul {
+            text-align: center;
+            vertical-align: center;
+        }
+ 
+        .ContentOne .storeNav ul li {
+            float: left;
+            /* background-color: #fff; */
+            list-style: none;
+            height: 35px;
+            line-height: 35px;
+            width: 56px;
+            padding: 0 5px 0 15px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            font-size: 13px;
+            text-shadow: 0px 2px 3px rgb(0 0 0 / 30%);
+            color: #d9d9d9;
+            /* padding-top: 10px; */
+        }
+ 
+        .ContentOne .storeNav .store {
+            display: inline;
+            width: 76px;
+            height: 35px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .ContentOne .storeNav .new {
+            display: inline;
+            width: 103px;
+            height: 35px;
+            position: absolute;
+            top: 0;
+            left: 77px;
+        }
+        .ContentOne .storeNav .kind{
+            display: inline;
+            width: 77px;
+            height: 35px;
+            position: absolute;
+            top: 0;
+            left: 180px;
+        }
+        .ContentOne .storeNav .store:hover~.secondOne {
+            display: flex;
+        }
+        .ContentOne .storeNav .secondOne:hover{
+            display: flex;
+        }
+        .ContentOne .storeNav .store:hover~ul>.yourStore {
+            cursor: pointer;
+            background-image: linear-gradient(to right, #3180BF, rgba(55, 106, 156, 0.5));
+        }
+        .ContentOne .storeNav .new:hover~.secondTwo {
+            display: flex;
+        }
+        .ContentOne .storeNav .secondTwo:hover{
+            display: flex;
+        }
+        .ContentOne .storeNav .new:hover~ul>.news {
+            cursor: pointer;
+            background-image: linear-gradient(to right, #3180BF, rgba(55, 106, 156, 0.5));
+        }
+        .ContentOne .storeNav .kind:hover~.secondThree {
+            display: flex;
+        }
+        .ContentOne .storeNav .secondThree:hover{
+            display: flex; 
+        }
+        .ContentOne .storeNav ul li:nth-child(2) {
+            width: 86px;
+            padding: 0 6px 0 11px;
+        }
+ 
+        .ContentOne .storeNav ul li:nth-child(3) {
+            width: 56px;
+            padding: 0 6px 0 15px;
+        }
+ 
+        .ContentOne .storeNav ul li img {
+            float: left;
+            width: 26px;
+            height: 26px;
+            margin-right: -10px;
+        }
+ 
+        .ContentOne .storeNav ul li:not(.emptyNav, .search):hover {
+            cursor: pointer;
+            background-image: linear-gradient(to right, #3180BF, rgba(55, 106, 156, 0.5));
+        }
+ 
+        .ContentOne .storeNav ul .emptyNav {
+            width: 210px;
+        }
+ 
+        .ContentOne .storeNav ul .search {
+            width: 205px;
+            height: 35px;
+            margin-left: 20px;
+            padding: 0;
+        }
+ 
+        .ContentOne .storeNav ul li .searchFor {
+            background-color: #316282;
+            border-radius: 3px;
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            box-shadow: 1px 1px 0px rgb(255 255 255 / 20%);
+            height: 25px;
+            box-sizing: border-box;
+            margin-right: 0;
+            margin-top: 5px;
+            position: relative;
+        }
+ 
+        .ContentOne .storeNav ul li .searchFor:hover {
+            border: 1px solid blue;
+        }
+ 
+        .ContentOne .storeNav ul li input {
+            height: 27px;
+            width: calc(100% - 25px - 8px);
+            color: #081116;
+            font-size: 14px;
+            text-shadow: 1px 1px 0px rgb(255 255 255 / 10%);
+            font-family: "Motiva Sans", Sans-serif;
+            font-weight: 300;
+            outline: none;
+            background-color: transparent;
+            border: none;
+            position: absolute;
+            left: 0;
+            font-style: italic;
+            margin-left: 8px
+        }
+ 
+        .ContentOne .storeNav ul li .searchFor img {
+            width: 23px;
+            height: 23px;
+            position: absolute;
+            top: 0px;
+            right: 11px;
+        }
+ 
+        .ContentOne .storeNav .secondOne {
+            width: 177px;
+            height: 126px;
+            background: linear-gradient(90deg, rgba(33, 162, 255, 0.1) 1.89%, rgba(50, 50, 51, 0) 50%),
+                linear-gradient(180deg, #575860 11.6%, #3A4852 54.73%, #2C2D34 100%);
+            position: absolute;
+            top: 35px;
+            /* z-index: 999; */
+            display: flex;
+            flex-direction: column;
+            padding: 8px 5px 8px 5px;
+            box-shadow: 0 0 12px #000000;
+            display: none;
+        }
+        .ContentOne .storeNav .secondTwo {
+            width: 177px;
+            height: 156px;
+            background: linear-gradient(90deg, rgba(33, 162, 255, 0.1) 1.89%, rgba(50, 50, 51, 0) 50%),
+                linear-gradient(180deg, #575860 11.6%, #3A4852 54.73%, #2C2D34 100%);
+            position: absolute;
+            top: 35px;
+            left: 76px;
+            /* z-index: 999; */
+            display: flex;
+            flex-direction: column;
+            padding: 8px 5px 8px 5px;
+            box-shadow: 0 0 12px #000000;
+            display: none;
+        }
+        .ContentOne .storeNav .secondThree {
+            width: 940px;
+            height: 560px;
+            background: linear-gradient(90deg, rgba(33, 162, 255, 0.1) 1.89%, rgba(50, 50, 51, 0) 50%),
+                linear-gradient(180deg, #575860 11.6%, #3A4852 54.73%, #2C2D34 100%);
+            position: absolute;
+            top: 35px;
+            left: 0px;
+            /* z-index: 999; */
+            display: flex;
+            flex-direction: row;
+            padding: 8px 5px 8px 5px;
+            box-shadow: 0 0 12px #000000;
+            display: none;
+        }
+        /* .ContentOne .storeNav .secondTwo>div:nth-child(1){
+ 
+        } */
+        .ContentOne .storeNav .secondOne>a {
+            color: #D8D8D8;
+            font-size: 12px;
+            text-align: left;
+            text-decoration: none;
+            margin: 6px 0 6px 15px;
+ 
+        }
+        .ContentOne .storeNav .secondTwo>a{
+            color: #D8D8D8;
+            font-size: 12px;
+            text-align: left;
+            text-decoration: none;
+            margin: 6px 0 6px 15px;
+        }
+        .ContentOne .storeNav .secondOne>a:hover {
+            text-decoration: 2px underline white;
+        }
+        .ContentOne .storeNav .secondTwo>a:hover {
+            text-decoration: 2px underline white;
+        }
+        /* 内容第一段，顶部导航栏结束 */
+        /* 第一轮播图开始 */
+        .ContentOne .firstP {
+            max-width: 940px;
+            height: 426px;
+            /* background-color: gray; */
+            position: absolute;
+            top: 76px;
+            left: 290px;
+            /* z-index: 5; */
+        }
+ 
+        .ContentOne .firstP .tittle {
+            font-size: 14px;
+            color: #fff;
+            letter-spacing: 0.03em;
+            margin-bottom: 10px;
+        }
+ 
+        .ContentOne .firstP .swipe {
+            width: 940px;
+            height: 353px;
+            background-color: #0B151E;
+            display: flex;
+            box-shadow: 0 0 7px 0px #000;
+        }
+ 
+        .ContentOne .firstP .swipe .swipeLeft {
+            width: 616px;
+            height: 353px;
+            /* background-color: turquoise; */
+            background:url("img/capsule_616x353 (1).jpg");
+            animation: firstP 32s steps(1) 4s infinite alternate;
+            /* z-index: 5; */
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            transition: opacity 300ms;
+            /* position: absolute;
+             top: 29.2px;
+            left: 0; */
+        }
+ 
+        @keyframes firstP {
+            0% {
+                background:url("img/capsule_616x353 (2).jpg");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+ 
+            20% {
+                background:url("img/capsule_616x353 (4).jpg");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+ 
+            40% {
+                background:url("img/capsule_616x353_alt_assets_1_schinese (1).jpg");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+ 
+            60% {
+                background:url("img/capsule_616x353_schinese.jpg");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+ 
+            80% {
+                background:url("img/capsule_616x353 (3).jpg");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+ 
+            100% {
+                background:url("img/capsule_616x353.jpg");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+        }
+ 
+        .ContentOne .firstP .swipe .appName {
+            width: 314px;
+            height: 69px;
+            /* background-color: tomato; */
+            padding-left: 6px;
+            padding-right: 6px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+        }
+ 
+        .ContentOne .firstP .swipe .appName>div {
+            align-items: center;
+            justify-self: center;
+            max-height: 62px;
+            overflow: hidden;
+            font-size: 24px;
+            padding-bottom: 4px;
+            padding-top: 4px;
+            line-height: 26px;
+            font-weight: 400;
+        }
+ 
+        .ContentOne .firstP .swipe .screenshots {
+            width: 327px;
+            height: 162px;
+            padding-right: 5px;
+            /* background-color: #fff; */
+            display: flex;
+            flex-wrap: wrap;
+        }
+ 
+        .ContentOne .firstP .swipe .screenshots>div {
+            width: 155px;
+            height: 70px;
+            margin: 0px 0px 12px 5px;
+            /* background-color: aliceblue; */
+        }
+ 
+        .ContentOne .firstP .swipe .screenshots>div:first-child {
+            background:url("img/ss_d1555f147b4667f70fac769985df629cbfda40b8.600x338.jpg");
+            background-size: cover;
+            background-position: center center;
+            opacity: 0.6;
+            animation: firstP-1 32s steps(1) 4s infinite alternate;
+        }
+ 
+        @keyframes firstP-1 {
+            0% {
+                background:url("img/hero_capsule_schinese.jpg");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+ 
+            20% {
+                background:url("img/ss_b65236b365315ebb6da6114ce42cd74b59cab3c8.600x338.jpg");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+ 
+            40% {
+                background: url("./steam Website/第一个轮播图/无主-1.jpg");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+ 
+            60% {
+                background: url("./steam Website/第一个轮播图/杀手-1.jpg");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+ 
+            80% {
+                background: url("./steam Website/第一个轮播图/俄罗斯钓鱼-1.jpg");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+ 
+            100% {
+                background: url("./steam Website/第一个轮播图/古剑奇谭-1.jpg");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+        }
+ 
+        .ContentOne .firstP .swipe .screenshots>div:nth-child(2) {
+            background:url("img/ss_e929649b2b98ad76795d92d8489470bc5dbffddb.600x338.jpg");
+            background-size: cover;
+            background-position: center center;
+            opacity: 0.6;
+            animation: firstP-2 32s steps(1) 4s infinite alternate;
+        }
+ 
+        @keyframes firstP-2 {
+            0% {
+                background:url("img/hero_capsule_schinese.jpg");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+ 
+            20% {
+                background:url("img/ss_00f0090174380eeaf8753bd3d1028b6772c3aebf.600x338.jpg");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+ 
+            40% {
+                background: url("./steam Website/第一个轮播图/无主-2.jpg");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+ 
+            60% {
+                background: url("./steam Website/第一个轮播图/杀手-2.jpg");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+ 
+            80% {
+                background: url("./steam Website/第一个轮播图/俄罗斯钓鱼-2.jpg");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+ 
+            100% {
+                background: url("./steam Website/第一个轮播图/古剑奇谭-2.jpg");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+        }
+ 
+        .ContentOne .firstP .swipe .screenshots>div:nth-child(3) {
+            background:url("img/ss_1487c2c7ddd9a1ae6b55f7e50d5d63ada6915921.600x338.jpg");
+            background-size: cover;
+            background-position: center center;
+            opacity: 0.6;
+            animation: firstP-3 32s steps(1) 4s infinite alternate;
+        }
+ 
+        @keyframes firstP-3 {
+            0% {
+                background:url("img/ss_d1555f147b4667f70fac769985df629cbfda40b8.600x338.jpg");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+ 
+            20% {
+                background:url("img/ss_3c16188972c826942f47991d91b0f6dc17e01fc9.600x338.jpg");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+ 
+            40% {
+                background: url("./steam Website/第一个轮播图/无主-3.jpg");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+ 
+            60% {
+                background: url("./steam Website/第一个轮播图/杀手-3.jpg");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+ 
+            80% {
+                background: url("./steam Website/第一个轮播图/俄罗斯钓鱼-3.jpg");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+ 
+            100% {
+                background: url("./steam Website/第一个轮播图/古剑奇谭-3.jpg");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+        }
+ 
+        .ContentOne .firstP .swipe .screenshots>div:nth-child(4) {
+            background:url("img/ss_a5ca40b51e95d5c592e5eb77b3d78d5149ea5fd6.600x338.jpg")no-repeat;
+            background-size: cover;
+            background-position: center center;
+            opacity: 0.6;
+            animation: firstP-4 32s steps(1) 4s infinite alternate;
+        }
+ 
+        @keyframes firstP-4 {
+            0% {
+                background:url("img/ss_e929649b2b98ad76795d92d8489470bc5dbffddb.600x338.jpg");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+ 
+            20% {
+                background:url("img/ss_0a13a7ccd38e7c3e6a5f1720050732833b53b6a8.600x338.jpg");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+ 
+            40% {
+                background: url("./steam Website/第一个轮播图/无主-4.jpg");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+ 
+            60% {
+                background: url("./steam Website/第一个轮播图/杀手-4.jpg");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+ 
+            80% {
+                background: url("./steam Website/第一个轮播图/俄罗斯钓鱼-4.jpg");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+ 
+            100% {
+                background: url("./steam Website/第一个轮播图/古剑奇谭-4.jpg");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+        }
+ 
+        .ContentOne .firstP .swipe .screenshots>div:hover {
+            opacity: 1;
+        }
+ 
+        .ContentOne .firstP .swipe .reason {
+            width: 298px;
+            height: 57px;
+            margin-top: 8px;
+            padding-left: 6px;
+            /* background-color: aqua; */
+        }
+ 
+        .ContentOne .firstP .swipe .reason>div:first-child {
+            color: #fff;
+            padding-left: 10px;
+            line-height: 18px;
+            font-size: 21px;
+            font-weight: 200;
+        }
+ 
+        .ContentOne .firstP .swipe .reason>div:nth-child(2) {
+            color: #fff;
+            background-color: rgba(96, 96, 96, 0.5);
+            margin: 8px 0 0 10px;
+            display: inline-block;
+            line-height: 19px;
+            padding: 0 7px;
+            font-size: 11px;
+            border-radius: 2px;
+ 
+        }
+ 
+        .ContentOne .firstP .swipe .money {
+            color: #acdbf5;
+            margin-top: 30px;
+            padding-left: 20px;
+            font-size: 11px;
+            position: relative;
+        }
+ 
+        .ContentOne .firstP .swipe .money img:first-child {
+            position: absolute;
+            right: 10px;
+            opacity: 0.7;
+        }
+ 
+        .ContentOne .firstP .swipe .money img:nth-child(2) {
+            position: absolute;
+            right: 30px;
+            opacity: 0.7;
+        }
+ 
+        .ContentOne .firstP .swipe .money img:nth-child(3) {
+            position: absolute;
+            right: 50px;
+            opacity: 0.7;
+        }
+ 
+        .ContentOne .firstP .swipe .swipePoint {
+            width: 940px;
+            height: 41px;
+            /* background-color: #fff; */
+            position: absolute;
+            bottom: 0;
+            text-align: center;
+        }
+ 
+        .ContentOne .firstP .swipe .swipePoint>div {
+            display: inline-block;
+            margin: 12px 2px;
+            width: 15px;
+            height: 9px;
+            border-radius: 2px;
+            background-color: hsla(202, 60%, 100%, 0.2);
+            cursor: pointer;
+            font-size: 12px;
+        }
+ 
+        .ContentOne .firstP .swipe .swipePoint>div:hover {
+            background-color: hsla(202, 60%, 100%, 0.3);
+        }
+ 
+        .ContentOne .firstP .swipe .swipePoint>div:first-child {
+            background-color: hsla(202, 60%, 100%, 0.6);
+        }
+ 
+        .ContentOne .firstP .swipe:hover .swipeLeft {
+            animation-play-state: paused;
+        }
+ 
+        .ContentOne .firstP .swipe:hover .screenshots>div {
+            animation-play-state: paused;
+        }
+ 
+        .ContentOne .firstP .leftArrow {
+            width: 23px;
+            height: 36px;
+            position: absolute;
+            left: -46px;
+            top: 122px;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.3) 5%, rgba(0, 0, 0, 0) 95%);
+            padding: 36px 11px;
+        }
+ 
+        .ContentOne .firstP .leftArrow>div {
+            background-image: url("./steam Website/arrows.png");
+            width: 23px;
+            height: 36px;
+            background-position-x: 23px;
+        }
+ 
+        .ContentOne .firstP .rightArrow {
+            width: 23px;
+            height: 36px;
+            position: absolute;
+            right: -46px;
+            top: 122px;
+            background: linear-gradient(to left, rgba(0, 0, 0, 0.3) 5%, rgba(0, 0, 0, 0) 95%);
+            padding: 36px 11px;
+        }
+ 
+        .ContentOne .firstP .rightArrow div {
+            background-image:url("img/arrows.png");
+            width: 23px;
+            height: 36px;
+        }
+		}
+        .ContentOne .firstP .leftArrow:hover {
+            background: linear-gradient(to right, rgba(69, 92, 112, 0.9) 5%, rgba(69, 92, 112, 0) 95%);
+        }
+ 
+        .ContentOne .firstP .rightArrow:hover {
+            background: linear-gradient(to left, rgba(69, 92, 112, 0.9) 5%, rgba(69, 92, 112, 0) 95%);
+        }
+ 
+        /* 内容第一部分，轮播图结束 */
+        /* 特别优惠部分开始 */
+        .ContentOne .specialOffers {
+            width: 940px;
+            height: 473px;
+            position: absolute;
+            top: 515px;
+            left: 290px;
+        }
+ 
+        .ContentOne .specialOffers .tittle {
+            font-size: 14px;
+            color: #fff;
+            letter-spacing: 0.03em;
+            margin-bottom: 10px;
+            padding-top: 2px;
+            margin-bottom: 10px;
+        }
+ 
+        .ContentOne .specialOffers .tittle .btn {
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding: 0 15px;
+            font-size: 12px;
+            line-height: 20px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 2px;
+            cursor: pointer;
+        }
+ 
+        .ContentOne .specialOffers .content {
+            width: 940px;
+            height: 402px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+ 
+        .ContentOne .specialOffers .content .left {
+            width: 306px;
+            height: 400px;
+            background-image: url("./steam Website/特别优惠/background_spotlight.jpg");
+            box-shadow: 0 0 5px #000000
+        }
+ 
+        .ContentOne .specialOffers .content .left img {
+            width: 306px;
+            cursor: pointer;
+        }
+ 
+        .ContentOne .specialOffers .content .left h4 {
+            font-size: 14px;
+            color: #fff;
+            margin: 0 0 10px;
+            letter-spacing: 0.03em;
+            font-weight: normal;
+            padding-top: 2px;
+            margin-top: 10px;
+            margin-left: 16px;
+        }
+ 
+        .ContentOne .specialOffers .content .mid {
+            width: 306px;
+            height: 400px;
+            box-shadow: 0 0 5px #000000;
+            position: relative;
+ 
+        }
+ 
+        .ContentOne .specialOffers .content .mid .top {
+            width: 306px;
+        }
+ 
+        .ContentOne .specialOffers .content .mid .bottom {
+            width: 274px;
+            height: 113px;
+            background: url("./steam Website/特别优惠/background_spotlight.jpg") bottom center no-repeat;
+            position: absolute;
+            bottom: 0;
+            padding: 8px 16px 12px 16px;
+        }
+ 
+        .ContentOne .specialOffers .content .mid .bottom h4 {
+            font-size: 14px;
+            color: #fff;
+            margin: 0 0 10px;
+            letter-spacing: 0.03em;
+            font-weight: normal;
+            padding-top: 6px;
+            margin-bottom: 16px;
+        }
+ 
+        .ContentOne .specialOffers .content .mid .bottom h6 {
+            font-weight: 400;
+            color: #acdbf5;
+            font-size: 10px
+        }
+ 
+        .ContentOne .specialOffers .content .mid .bottom .money {
+            width: 274px;
+            height: 34px;
+            /* background-color: tomato; */
+            position: absolute;
+            left: 16px;
+            bottom: 12px;
+        }
+ 
+        .ContentOne .specialOffers .content .mid .bottom .money .discount>div:first-child {
+            color: #a4d007;
+            background: #4c6b22;
+            display: inline-block;
+            line-height: 34px;
+            padding: 0 5px;
+            font-weight: 300;
+            font-size: 26px;
+        }
+ 
+        .ContentOne .specialOffers .content .mid .bottom .money .prices {
+            width: 25px;
+            height: 25px;
+            padding: 4px 10px 4px 7px;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: inline-block;
+            vertical-align: bottom;
+            text-align: right;
+            margin-left: -5px;
+        }
+ 
+        .ContentOne .specialOffers .content .mid .bottom .money .prices>div:first-child {
+            color: #7193a6;
+            text-decoration: line-through;
+            font-size: 11px;
+            line-height: 13px;
+        }
+ 
+        .ContentOne .specialOffers .content .mid .bottom .money .prices>div:last-child {
+            color: #acdbf5;
+            font-size: 13px;
+            line-height: 13px;
+        }
+ 
+        .ContentOne .specialOffers .content .mid img {
+            width: 306px;
+            cursor: pointer;
+        }
+ 
+        .ContentOne .specialOffers .content .right {
+            width: 306px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+ 
+        .ContentOne .specialOffers .content .right>.rightOne,
+        .rightTwo {
+            height: 190px;
+            background: linear-gradient(to bottom, #ffffff 5%, #abdaf4 95%);
+            position: relative;
+        }
+ 
+        .ContentOne .specialOffers .content .right .rightOne>img,
+        .rightTwo>img {
+            width: 306px;
+            height: 143px;
+        }
+ 
+        .ContentOne .specialOffers .content .right .rightOne>img,
+        .rightTwo>img:hover {
+            cursor: pointer;
+        }
+ 
+        .ContentOne .specialOffers .content .right .rightOne .money {
+            height: 34px;
+            /* background-color: tomato; */
+            padding: 0 5px 0 5px;
+            position: absolute;
+            right: 0;
+            bottom: 6px;
+        }
+ 
+        .ContentOne .specialOffers .content .right .rightTwo .money {
+            height: 34px;
+            /* background-color: tomato; */
+            padding: 0 5px 0 5px;
+            position: absolute;
+            right: 0;
+            bottom: 6px;
+        }
+ 
+        .ContentOne .specialOffers .content .right .rightOne .money .discount>div:first-child {
+            color: #a4d007;
+            background: #4c6b22;
+            display: inline-block;
+            line-height: 34px;
+            padding: 0 5px;
+            font-weight: 300;
+            font-size: 26px;
+        }
+ 
+        .ContentOne .specialOffers .content .right .rightOne .money .prices {
+            width: 25px;
+            height: 25px;
+            padding: 4px 10px 4px 7px;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: inline-block;
+            vertical-align: bottom;
+            text-align: right;
+            margin-left: -5px;
+        }
+ 
+        .ContentOne .specialOffers .content .right .rightOne .money .prices>div:first-child {
+            color: #7193a6;
+            text-decoration: line-through;
+            font-size: 11px;
+            line-height: 13px;
+        }
+ 
+        .ContentOne .specialOffers .content .right .rightOne .money .prices>div:last-child {
+            color: #acdbf5;
+            font-size: 13px;
+            line-height: 13px;
+        }
+ 
+        .ContentOne .specialOffers .content .right .rightOne .time {
+            font-size: 11px;
+            width: 60px;
+            height: 33px;
+            padding: 5px 7px 4px;
+        }
+ 
+        .ContentOne .specialOffers .content .right .rightOne .time>div:first-child {
+            height: 16px;
+        }
+ 
+        .ContentOne .specialOffers .content .right .rightOne .time>.trueTime {
+            width: 47px;
+            height: 13px;
+            font-size: 10px;
+            padding: 1px 4px;
+            background-color: #4f95bd;
+            color: #c4e4f2;
+        }
+ 
+        .ContentOne .specialOffers .content .right .rightTwo .money .discount>div:first-child {
+            color: #a4d007;
+            background: #4c6b22;
+            display: inline-block;
+            line-height: 34px;
+            padding: 0 5px;
+            font-weight: 300;
+            font-size: 26px;
+        }
+ 
+        .ContentOne .specialOffers .content .right .rightTwo .money .prices {
+            width: 25px;
+            height: 25px;
+            padding: 4px 10px 4px 7px;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: inline-block;
+            vertical-align: bottom;
+            text-align: right;
+            margin-left: -5px;
+        }
+ 
+        .ContentOne .specialOffers .content .right .rightTwo .money .prices>div:first-child {
+            color: #7193a6;
+            text-decoration: line-through;
+            font-size: 11px;
+            line-height: 13px;
+        }
+ 
+        .ContentOne .specialOffers .content .right .rightTwo .money .prices>div:last-child {
+            color: #acdbf5;
+            font-size: 13px;
+            line-height: 13px;
+        }
+ 
+        .ContentOne .specialOffers .content .OffersPoint {
+            width: 940px;
+            height: 41px;
+            /* background-color: #fff; */
+            position: absolute;
+            bottom: 0;
+            text-align: center;
+        }
+ 
+        .ContentOne .specialOffers .content .OffersPoint>div {
+            display: inline-block;
+            margin: 12px 0;
+            width: 15px;
+            height: 9px;
+            border-radius: 2px;
+            background-color: hsla(202, 60%, 100%, 0.2);
+            cursor: pointer;
+            font-size: 12px;
+        }
+ 
+        .ContentOne .specialOffers .content .OffersPoint>div:hover {
+            background-color: hsla(202, 60%, 100%, 0.3);
+        }
+ 
+        .ContentOne .specialOffers .content .OffersPoint>div:first-child {
+            background-color: hsla(202, 60%, 100%, 0.6);
+        }
+ 
+        .ContentOne .specialOffers .leftArrow {
+            width: 23px;
+            height: 36px;
+            position: absolute;
+            left: -46px;
+            top: 35%;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.3) 5%, rgba(0, 0, 0, 0) 95%);
+            padding: 36px 11px;
+        }
+ 
+        .ContentOne .specialOffers .leftArrow>div {
+            background-image: url("./steam Website/arrows.png");
+            width: 23px;
+            height: 36px;
+            background-position-x: 23px;
+        }
+ 
+        .ContentOne .specialOffers .rightArrow {
+            width: 23px;
+            height: 36px;
+            position: absolute;
+            right: -46px;
+            top: 35%;
+            background: linear-gradient(to left, rgba(0, 0, 0, 0.3) 5%, rgba(0, 0, 0, 0) 95%);
+            padding: 36px 11px;
+        }
+ 
+        .ContentOne .specialOffers .rightArrow>div {
+            background-image: url("./steam Website/arrows.png");
+            width: 23px;
+            height: 36px;
+        }
+ 
+        .ContentOne .specialOffers .leftArrow:hover {
+            background: linear-gradient(to right, rgba(69, 92, 112, 0.9) 5%, rgba(69, 92, 112, 0) 95%);
+        }
+ 
+        .ContentOne .specialOffers .rightArrow:hover {
+            background: linear-gradient(to left, rgba(69, 92, 112, 0.9) 5%, rgba(69, 92, 112, 0) 95%);
+        }
+ 
+        /* 特别优惠结束 */
+        /* 社区推荐 */
+        .ContentOne .community {
+            width: 940px;
+            height: 456px;
+            position: absolute;
+            top: 1015px;
+            left: 290px;
+        }
+ 
+        .ContentOne .community .tittleOne {
+            width: 940px;
+            height: 36px;
+            color: #ffffff;
+            font-weight: 300;
+            font-size: 21px;
+            letter-spacing: 0.07em;
+            margin-bottom: -10px;
+        }
+ 
+        .ContentOne .community .tittleTwo {
+            height: 20px;
+            color: #fff;
+            margin: 0 0 10px;
+            letter-spacing: 0.03em;
+            font-size: 14px;
+        }
+ 
+        .ContentOne .community .game {
+            width: 100%;
+            height: 353px;
+            box-shadow: 0 0 4px #000;
+            display: flex;
+ 
+        }
+ 
+        .ContentOne .community .game .gameP {
+            width: 616px;
+            height: 100%;
+            background-color: #fff;
+            background: url("./steam Website/特别优惠/骑砍.jpg");
+            position: relative;
+        }
+ 
+        .ContentOne .community .game .gameP .price {
+            width: 50px;
+            height: 21px;
+            background: #000000;
+            position: absolute;
+            right: 0;
+            bottom: 42px;
+            color: #acdbf5;
+            font-size: 13px;
+            text-align: center;
+            vertical-align: center;
+            padding-top: 2px;
+        }
+ 
+        .ContentOne .community .game .gameT {
+            width: 319px;
+            height: 100%-40px;
+            background: linear-gradient(to bottom, #506c86 5%, #10143100 96%);
+            padding: 20px;
+        }
+ 
+        .ContentOne .community .game .gameT .playerT {
+            width: 300px;
+            height: 210px;
+            font-weight: normal;
+            font-size: 18px;
+            height: 210px;
+            color: #ebebeb;
+            overflow-wrap: break-word;
+            overflow: hidden;
+        }
+ 
+        .ContentOne .community .game .gameT .tAll {
+            width: 72px;
+            height: 14px;
+            color: #c1dbf4;
+            margin: 0 auto;
+            font-size: 12px;
+        }
+ 
+        .ContentOne .community .game .gameT .player {
+            width: 300px;
+            height: 60px;
+            margin-top: 20px;
+            position: relative;
+ 
+        }
+ 
+        .ContentOne .community .game .gameT .player .hand {
+            width: 40px;
+            height: 40px;
+            background-color: aquamarine;
+            background: url("./steam Website/长权.jpg") no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+ 
+        .ContentOne .community .game .gameT .player .name {
+            position: absolute;
+            top: 0;
+            left: 47px;
+            color: #c1dbf4;
+            font-size: 13px;
+            font-weight: bold;
+        }
+ 
+        .ContentOne .community .game .gameT .player .hour {
+            position: absolute;
+            top: 19px;
+            left: 47px;
+            font-size: 10px;
+            color: #8091a2;
+        }
+ 
+        .ContentOne .community .game .gameT .player .num {
+            position: absolute;
+            top: 36px;
+            left: 47px;
+            font-size: 10px;
+            color: #8091a2;
+        }
+ 
+        .ContentOne .community .game .gameT .btn {
+            width: 316px;
+            height: 24px;
+            display: flex;
+            justify-content: space-between;
+        }
+ 
+        .ContentOne .community .game .gameT .btn .num {
+            color: #66c0f4;
+            font-size: 12px;
+        }
+ 
+        .ContentOne .community .game .gameT .btn .btnOne,
+        .btnTwo {
+            width: 8px;
+            line-height: 22px;
+            background-color: rgba(103, 193, 245, 0.2);
+            border: 1px transparent;
+            border-radius: 3px;
+            cursor: pointer;
+            padding: 0px 16px;
+            color: #66c0f4;
+            font-size: 12px;
+            text-align: center;
+        }
+ 
+        .ContentOne .community .CommunityPoint {
+            width: 940px;
+            height: 41px;
+            /* background-color: #fff; */
+            position: absolute;
+            bottom: 0;
+            text-align: center;
+        }
+ 
+        .ContentOne .community .CommunityPoint>div {
+            display: inline-block;
+            margin: 12px 0;
+            width: 15px;
+            height: 9px;
+            border-radius: 2px;
+            background-color: hsla(202, 60%, 100%, 0.2);
+            cursor: pointer;
+            font-size: 12px;
+        }
+ 
+        .ContentOne .community .CommunityPoint>div:hover {
+            background-color: hsla(202, 60%, 100%, 0.3);
+        }
+ 
+        .ContentOne .community .CommunityPoint>div:first-child {
+            background-color: hsla(202, 60%, 100%, 0.6);
+        }
+ 
+        .ContentOne .community .leftArrow {
+            width: 23px;
+            height: 36px;
+            position: absolute;
+            left: -46px;
+            top: 35%;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.3) 5%, rgba(0, 0, 0, 0) 95%);
+            padding: 36px 11px;
+        }
+ 
+        .ContentOne .community .leftArrow>div {
+            background-image: url("./steam Website/arrows.png");
+            width: 23px;
+            height: 36px;
+            background-position-x: 23px;
+        }
+ 
+        .ContentOne .community .rightArrow {
+            width: 23px;
+            height: 36px;
+            position: absolute;
+            right: -46px;
+            top: 35%;
+            background: linear-gradient(to left, rgba(0, 0, 0, 0.3) 5%, rgba(0, 0, 0, 0) 95%);
+            padding: 36px 11px;
+        }
+ 
+        .ContentOne .community .rightArrow>div {
+            background-image: url("./steam Website/arrows.png");
+            width: 23px;
+            height: 36px;
+        }
+ 
+        .ContentOne .community .leftArrow:hover {
+            background: linear-gradient(to right, rgba(69, 92, 112, 0.9) 5%, rgba(69, 92, 112, 0) 95%);
+        }
+ 
+        .ContentOne .community .rightArrow:hover {
+            background: linear-gradient(to left, rgba(69, 92, 112, 0.9) 5%, rgba(69, 92, 112, 0) 95%);
+        }
+ 
+        /* 社区推荐 结束*/
+        /* 浏览Steam开始 */
+        .ContentOne .browseSt {
+            width: 940px;
+            height: 95px;
+            position: absolute;
+            top: 1525px;
+            left: 290px;
+        }
+ 
+        .ContentOne .browseSt .tittle {
+            font-size: 14px;
+            color: #fff;
+            letter-spacing: 0.03em;
+            margin-bottom: 10px;
+            padding-top: 2px;
+            margin-bottom: 10px;
+        }
+ 
+        .ContentOne .browseSt .content {
+            width: 940px;
+            height: 58px;
+            display: flex;
+            justify-content: space-between;
+        }
+ 
+        .ContentOne .browseSt .content>div {
+            width: 229px;
+            height: 58px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 300;
+            font-size: 16px;
+            color: #FFFFFF;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            text-align: center;
+            background: linear-gradient(90deg, #06BFFF 0%, #2D73FF 100%);
+            border-radius: 3px;
+            box-shadow: 0 0 4px #000;
+            cursor: pointer;
+        }
+ 
+        .ContentOne .browseSt .content>div:hover {
+            background: linear-gradient(90deg, #06BFFF 0%, #06BFFF 50%, #2D73FF 100%);
+        }
+ 
+        /* 浏览Steam结束 */
+        /* 热门VR游戏开始 */
+        .ContentOne .Vr {
+            width: 940px;
+            height: 210px;
+            position: absolute;
+            top: 1660px;
+            left: 290px;
+        }
+ 
+        .ContentOne .Vr .tittle {
+            font-size: 14px;
+            color: #fff;
+            letter-spacing: 0.03em;
+            margin-bottom: 10px;
+            padding-top: 2px;
+            margin-bottom: 10px;
+        }
+ 
+        .ContentOne .Vr .content {
+            width: 940px;
+            height: 175px;
+            position: relative;
+        }
+ 
+        .ContentOne .Vr .content .vrGame {
+            width: 940px;
+            height: 134px;
+            display: flex;
+            justify-content: space-between;
+        }
+ 
+        .ContentOne .Vr .content .vrGame>div {
+            width: 229px;
+            height: 134px;
+            background: linear-gradient(-45deg, rgba(64, 121, 153, 1) 5%, rgba(42, 62, 89, 1) 95%);
+            position: relative;
+        }
+ 
+        .ContentOne .Vr .content .vrGame>div>img {
+            width: 229px;
+            height: 103px;
+        }
+ 
+        .ContentOne .Vr .content .vrGame>div>div {
+            position: absolute;
+            right: 7px;
+            bottom: 8px;
+            color: #acdbf5;
+            padding: 0 9px;
+            background-color: rgba(20, 31, 44, 0.4);
+            border-radius: 1px;
+            font-size: 11px;
+        }
+ 
+        .ContentOne .Vr .content .VrPoint {
+            width: 940px;
+            height: 41px;
+            /* background-color: #fff; */
+            position: absolute;
+            bottom: 0;
+            text-align: center;
+        }
+ 
+        .ContentOne .Vr .content .VrPoint>div {
+            display: inline-block;
+            margin: 12px 0;
+            width: 15px;
+            height: 9px;
+            border-radius: 2px;
+            background-color: hsla(202, 60%, 100%, 0.2);
+            cursor: pointer;
+            font-size: 12px;
+        }
+ 
+        .ContentOne .Vr .content .VrPoint>div:hover {
+            background-color: hsla(202, 60%, 100%, 0.3);
+        }
+ 
+        .ContentOne .Vr .content .VrPoint>div:first-child {
+            background-color: hsla(202, 60%, 100%, 0.6);
+        }
+ 
+        .ContentOne .Vr .leftArrow {
+            width: 23px;
+            height: 36px;
+            position: absolute;
+            left: -46px;
+            top: 27%;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.3) 5%, rgba(0, 0, 0, 0) 95%);
+            padding: 36px 11px;
+        }
+ 
+        .ContentOne .Vr .leftArrow>div {
+            background-image: url("./steam Website/arrows.png");
+            width: 23px;
+            height: 36px;
+            background-position-x: 23px;
+        }
+ 
+        .ContentOne .Vr .rightArrow {
+            width: 23px;
+            height: 36px;
+            position: absolute;
+            right: -46px;
+            top: 27%;
+            background: linear-gradient(to left, rgba(0, 0, 0, 0.3) 5%, rgba(0, 0, 0, 0) 95%);
+            padding: 36px 11px;
+        }
+ 
+        .ContentOne .Vr .rightArrow>div {
+            background-image: url("./steam Website/arrows.png");
+            width: 23px;
+            height: 36px;
+        }
+ 
+        .ContentOne .Vr .leftArrow:hover {
+            background: linear-gradient(to right, rgba(69, 92, 112, 0.9) 5%, rgba(69, 92, 112, 0) 95%);
+        }
+ 
+        .ContentOne .Vr .rightArrow:hover {
+            background: linear-gradient(to left, rgba(69, 92, 112, 0.9) 5%, rgba(69, 92, 112, 0) 95%);
+        }
+ 
+        /* 热门VR游戏结束 */
+        /* 内容第二段 */
+        .ContentOne .ContentTwo {
+            width: 100%;
+            height: 785px;
+            position: absolute;
+            top: 1960px;
+            background: linear-gradient(to bottom, rgba(42, 71, 94, 1.0) 5%, rgba(42, 71, 94, 0.0) 70%);
+        }
+ 
+        .ContentOne .ContentTwo .hard {
+            width: 940px;
+            height: 815px;
+            background: transparent;
+            position: absolute;
+            top: -29px;
+            left: 290px;
+            /* background-color: green; */
+        }
+ 
+        .ContentOne .ContentTwo .hard .hardHeader {
+            height: 29px;
+            /* background-color: grey; */
+            display: flex;
+            position: relative;
+        }
+ 
+        .ContentOne .ContentTwo .hard .hardHeader>div {
+            padding: 3px 10px;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            font-size: 13px;
+            color: #4f94bc;
+            cursor: pointer;
+            vertical-align: top;
+        }
+ 
+        .ContentOne .ContentTwo .hard .hardHeader>div:hover {
+            color: #FFFFFF
+        }
+ 
+ 
+        .ContentOne .ContentTwo .hard .hardHeader>div:first-child {
+            padding: 3px 10px;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            font-size: 14px;
+            color: #ffffff;
+            background: rgba(42, 71, 94, 1.0);
+            text-shadow: -1px -1px rgb(0 0 0 / 25%);
+            cursor: default;
+            margin-top: 0;
+            box-shadow: none;
+        }
+ 
+        .ContentOne .ContentTwo .hard .hardContent {
+            width: 618px;
+            height: 771px;
+            /* background-color: #fff; */
+            position: absolute;
+            top: 39px;
+        }
+ 
+        .ContentOne .ContentTwo .hard .hardContent .contentHeader {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 4px;
+            text-align: right;
+            color: #c6d4df;
+            font-size: 12px;
+        }
+ 
+        .ContentOne .ContentTwo .hard .hardContent .contentHeader>a {
+            padding: 3px 15px;
+            font-size: 12px;
+            line-height: 24px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 2px;
+            color: #fff;
+            text-decoration: none;
+        }
+ 
+        .ContentOne .ContentTwo .hard .hardContent .contentHeader>a:hover {
+            border: 1px solid rgba(255, 255, 255, 1);
+        }
+ 
+        .ContentOne .ContentTwo .hard .hardContent .hardContentGame>div {
+            width: 618px;
+            height: 69px;
+            background: rgba(0, 0, 0, 0.2);
+            margin: 0 0 5px;
+            position: relative;
+        }
+ 
+        .ContentOne .ContentTwo .hard .hardContent .hardContentGame>div .gameName {
+            position: absolute;
+            left: 200px;
+            top: 3px;
+            color: #c7d5e0;
+            line-height: 18px;
+            font-size: 14px;
+        }
+ 
+        .ContentOne .ContentTwo .hard .hardContent .hardContentGame>div .gameIcon {
+            position: absolute;
+            left: 200px;
+            top: 23px;
+            opacity: 0.3;
+        }
+ 
+        .ContentOne .ContentTwo .hard .hardContent .hardContentGame>div .label {
+            position: absolute;
+            left: 200px;
+            top: 43px;
+            color: #384959;
+            font-size: 12px;
+        }
+ 
+        .ContentOne .ContentTwo .hard .hardContent .hardContentGame>div .price {
+            position: absolute;
+            right: 15px;
+            top: 40%;
+            color: #acdbf5;
+            font-size: 13px;
+        }
+ 
+        /* .ContentOne .ContentTwo .hard .hardContent .hardContentGame>div:first-child {
+            width: 632px;
+            height: 69px;
+            background: linear-gradient(to left, #95bbd4 5%, #859bac 95%);
+            margin: 0 0 5px;
+            position: relative;
+ 
+        }
+ 
+        .ContentOne .ContentTwo .hard .hardContent .hardContentGame>div:first-child .gameName {
+            color: #10161b;
+        }
+ 
+        .ContentOne .ContentTwo .hard .hardContent .hardContentGame>div:first-child .gameIcon {
+            color: #384959;
+        }
+ 
+        .ContentOne .ContentTwo .hard .hardContent .hardContentGame>div:first-child .price {
+            color: #263645;
+            right: 29px;
+        } */
+        /* .ContentOne .ContentTwo .hard .hardContent .hardContentGame>div:hover{
+            width: 632px;
+            height: 69px;
+            background: linear-gradient(to left, #95bbd4 5%, #859bac 95%);
+            margin: 0 0 5px;
+            position: relative;
+        }
+        .ContentOne .ContentTwo .hard .hardContent .hardContentGame>div:hover .gameName{
+            color: #10161b;
+        }
+        .ContentOne .ContentTwo .hard .hardContent .hardContentGame>div:hover .gameIcon {
+            color: #384959;
+        }
+        .ContentOne .ContentTwo .hard .hardContent .hardContentGame>div:hover .price {
+            color: #263645;
+            right: 29px;
+        } */
+        .ContentOne .ContentTwo .hard>div:nth-child(n+13) {
+            width: 308px;
+            height: 735px;
+            background: linear-gradient(to right, #95bbd4 5%, #859bac 95%);
+            position: absolute;
+            right: 0;
+            margin: 13px 0 0;
+            display: flex;
+            flex-direction: column;
+            /* justify-content: space-evenly; */
+        }
+ 
+        .ContentOne .ContentTwo .hard>div:nth-child(n+14) {
+            display: none;
+        }
+ 
+        .ContentOne .ContentTwo .hard>div:nth-child(n+13) .gameName {
+            font-size: 21px;
+            letter-spacing: 0px;
+            color: #263645;
+            height: 30px;
+            padding-right: 8px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            margin: 2px 0 2px 15px;
+        }
+ 
+        .ContentOne .ContentTwo .hard>div:nth-child(n+13) .num {
+            width: 272px;
+            height: 32px;
+            padding: 5px 7px;
+            margin-left: 15px;
+            margin-bottom: 10px;
+            background-color: rgba(38, 54, 69, 0.6);
+            width: 258px;
+            border-radius: 2px;
+            display: flex;
+            flex-direction: column;
+        }
+ 
+        .ContentOne .ContentTwo .hard>div:nth-child(n+13) .num span {
+            color: #c6d4df;
+            font-size: 12px;
+        }
+ 
+        .ContentOne .ContentTwo .hard>div:nth-child(n+13) .num div {
+            color: #66C0F4;
+            font-size: 12px;
+        }
+ 
+        .ContentOne .ContentTwo .hard>div:nth-child(n+13) .label {
+            width: 292px;
+            height: 22px;
+            display: flex;
+            margin: 0 0 6px 15px;
+ 
+        }
+ 
+        .ContentOne .ContentTwo .hard>div:nth-child(n+13) .label>div {
+            background-color: rgba(38, 54, 69, 0.6);
+            padding: 0 7px;
+            margin-right: 2px;
+            border-radius: 2px;
+            cursor: pointer;
+            margin-bottom: 3px;
+            max-width: 200px;
+            font-size: 11px;
+            color: #ffffff;
+        }
+ 
+        .ContentOne .ContentTwo .hard>div:nth-child(n+13) img {
+            width: 274px;
+            height: 150px;
+            margin: 0 0 2px 15px;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right1 {
+            width: 619px;
+            height: 69px;
+            position: absolute;
+            top: 70px;
+            left: 0;
+            background-color: transparent;
+            z-index: 10;
+ 
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right1:hover~.hardContent .hardContentGame>div:nth-child(1) {
+            width: 632px;
+            height: 69px;
+            background: linear-gradient(to left, #95bbd4 5%, #859bac 95%);
+            margin: 0 0 5px;
+            position: relative;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right1:hover~.hardContent .hardContentGame>div:nth-child(1) .gameName {
+            color: #10161b;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right1:hover~.hardContent .hardContentGame>div:nth-child(1) .gameIcon {
+            color: #384959;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right1:hover~.hardContent .hardContentGame>div:nth-child(1) .price {
+            color: #263645;
+            right: 29px;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right2 {
+            width: 619px;
+            height: 69px;
+            position: absolute;
+            top: 145px;
+            left: 0;
+            background-color: transparent;
+            z-index: 10;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right2:hover~div:nth-child(14) {
+            display: flex;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right2:hover~.hardContent .hardContentGame>div:nth-child(2) {
+            width: 632px;
+            height: 69px;
+            background: linear-gradient(to left, #95bbd4 5%, #859bac 95%);
+            margin: 0 0 5px;
+            position: relative;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right2:hover~.hardContent .hardContentGame>div:nth-child(2) .gameName {
+            color: #10161b;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right2:hover~.hardContent .hardContentGame>div:nth-child(2) .gameIcon {
+            color: #384959;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right2:hover~.hardContent .hardContentGame>div:nth-child(2) .price {
+            color: #263645;
+            right: 29px;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right3 {
+            width: 619px;
+            height: 69px;
+            position: absolute;
+            top: 220px;
+            left: 0;
+            background-color: transparent;
+            z-index: 10;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right3:hover~div:nth-child(15) {
+            display: flex;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right3:hover~.hardContent .hardContentGame>div:nth-child(3) {
+            width: 632px;
+            height: 69px;
+            background: linear-gradient(to left, #95bbd4 5%, #859bac 95%);
+            margin: 0 0 5px;
+            position: relative;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right3:hover~.hardContent .hardContentGame>div:nth-child(3) .gameName {
+            color: #10161b;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right3:hover~.hardContent .hardContentGame>div:nth-child(3) .gameIcon {
+            color: #384959;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right3:hover~.hardContent .hardContentGame>div:nth-child(3) .price {
+            color: #263645;
+            right: 29px;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right4 {
+            width: 619px;
+            height: 69px;
+            position: absolute;
+            top: 295px;
+            left: 0;
+            background-color: transparent;
+            z-index: 10;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right4:hover~div:nth-child(16) {
+            display: flex;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right4:hover~.hardContent .hardContentGame>div:nth-child(4) {
+            width: 632px;
+            height: 69px;
+            background: linear-gradient(to left, #95bbd4 5%, #859bac 95%);
+            margin: 0 0 5px;
+            position: relative;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right4:hover~.hardContent .hardContentGame>div:nth-child(4) .gameName {
+            color: #10161b;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right4:hover~.hardContent .hardContentGame>div:nth-child(4) .gameIcon {
+            color: #384959;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right4:hover~.hardContent .hardContentGame>div:nth-child(4) .price {
+            color: #263645;
+            right: 29px;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right5 {
+            width: 619px;
+            height: 69px;
+            position: absolute;
+            top: 370px;
+            left: 0;
+            background-color: transparent;
+            z-index: 10;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right5:hover~div:nth-child(17) {
+            display: flex;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right5:hover~.hardContent .hardContentGame>div:nth-child(5) {
+            width: 632px;
+            height: 69px;
+            background: linear-gradient(to left, #95bbd4 5%, #859bac 95%);
+            margin: 0 0 5px;
+            position: relative;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right5:hover~.hardContent .hardContentGame>div:nth-child(5) .gameName {
+            color: #10161b;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right5:hover~.hardContent .hardContentGame>div:nth-child(5) .gameIcon {
+            color: #384959;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right5:hover~.hardContent .hardContentGame>div:nth-child(5) .price {
+            color: #263645;
+            right: 29px;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right6 {
+            width: 619px;
+            height: 69px;
+            position: absolute;
+            top: 445px;
+            left: 0;
+            background-color: transparent;
+            z-index: 10;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right6:hover~div:nth-child(18) {
+            display: flex;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right6:hover~.hardContent .hardContentGame>div:nth-child(6) {
+            width: 632px;
+            height: 69px;
+            background: linear-gradient(to left, #95bbd4 5%, #859bac 95%);
+            margin: 0 0 5px;
+            position: relative;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right6:hover~.hardContent .hardContentGame>div:nth-child(6) .gameName {
+            color: #10161b;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right6:hover~.hardContent .hardContentGame>div:nth-child(6) .gameIcon {
+            color: #384959;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right6:hover~.hardContent .hardContentGame>div:nth-child(6) .price {
+            color: #263645;
+            right: 29px;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right7 {
+            width: 619px;
+            height: 69px;
+            position: absolute;
+            top: 520px;
+            left: 0;
+            background-color: transparent;
+            z-index: 10;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right7:hover~div:nth-child(19) {
+            display: flex;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right7:hover~.hardContent .hardContentGame>div:nth-child(7) {
+            width: 632px;
+            height: 69px;
+            background: linear-gradient(to left, #95bbd4 5%, #859bac 95%);
+            margin: 0 0 5px;
+            position: relative;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right7:hover~.hardContent .hardContentGame>div:nth-child(7) .gameName {
+            color: #10161b;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right7:hover~.hardContent .hardContentGame>div:nth-child(7) .gameIcon {
+            color: #384959;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right7:hover~.hardContent .hardContentGame>div:nth-child(7) .price {
+            color: #263645;
+            right: 29px;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right8 {
+            width: 619px;
+            height: 69px;
+            position: absolute;
+            top: 595px;
+            left: 0;
+            background-color: transparent;
+            z-index: 10;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right8:hover~div:nth-child(20) {
+            display: flex;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right8:hover~.hardContent .hardContentGame>div:nth-child(8) {
+            width: 632px;
+            height: 69px;
+            background: linear-gradient(to left, #95bbd4 5%, #859bac 95%);
+            margin: 0 0 5px;
+            position: relative;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right8:hover~.hardContent .hardContentGame>div:nth-child(8) .gameName {
+            color: #10161b;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right8:hover~.hardContent .hardContentGame>div:nth-child(8) .gameIcon {
+            color: #384959;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right8:hover~.hardContent .hardContentGame>div:nth-child(8) .price {
+            color: #263645;
+            right: 29px;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right9 {
+            width: 619px;
+            height: 69px;
+            position: absolute;
+            top: 670px;
+            left: 0;
+            background-color: transparent;
+            z-index: 10;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right9:hover~div:nth-child(21) {
+            display: flex;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right9:hover~.hardContent .hardContentGame>div:nth-child(9) {
+            width: 632px;
+            height: 69px;
+            background: linear-gradient(to left, #95bbd4 5%, #859bac 95%);
+            margin: 0 0 5px;
+            position: relative;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right9:hover~.hardContent .hardContentGame>div:nth-child(9) .gameName {
+            color: #10161b;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right9:hover~.hardContent .hardContentGame>div:nth-child(9) .gameIcon {
+            color: #384959;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right9:hover~.hardContent .hardContentGame>div:nth-child(9) .price {
+            color: #263645;
+            right: 29px;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right10 {
+            width: 619px;
+            height: 69px;
+            position: absolute;
+            top: 745px;
+            left: 0;
+            background-color: transparent;
+            z-index: 10;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right10:hover~div:nth-child(22) {
+            display: flex;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right10:hover~.hardContent .hardContentGame>div:nth-child(10) {
+            width: 632px;
+            height: 69px;
+            background: linear-gradient(to left, #95bbd4 5%, #859bac 95%);
+            margin: 0 0 5px;
+            position: relative;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right10:hover~.hardContent .hardContentGame>div:nth-child(10) .gameName {
+            color: #10161b;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right10:hover~.hardContent .hardContentGame>div:nth-child(10) .gameIcon {
+            color: #384959;
+        }
+ 
+        .ContentOne .ContentTwo .hard>.right10:hover~.hardContent .hardContentGame>div:nth-child(10) .price {
+            color: #263645;
+            right: 29px;
+        }
+ 
+        /* 内容第二段 结束*/
+        /* 直播开始 */
+        .ContentOne .ContentTwo .live {
+            width: 940px;
+            height: 470px;
+            position: absolute;
+            top: 850px;
+            left: 290px;
+        }
+ 
+        .ContentOne .ContentTwo .live .tittle {
+            font-size: 14px;
+            letter-spacing: 0.03em;
+            margin-bottom: 10px;
+            padding-top: 2px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+ 
+        .ContentOne .ContentTwo .live .man {
+            width: 933px;
+            height: 428px;
+            margin: 0 5px 8px 0;
+            ;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+ 
+        .ContentOne .ContentTwo .live .man>div {
+            height: 207px;
+            width: 306px;
+            background: rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+ 
+        .ContentOne .ContentTwo .live .man>div img:not(.btn, .redcircle, .peopleHand) {
+            width: 100%;
+            height: 142px;
+        }
+ 
+        .ContentOne .ContentTwo .live .man>div .btn {
+            position: absolute;
+            left: 50%;
+            margin-left: -40px;
+            top: 40px;
+        }
+ 
+        .ContentOne .ContentTwo .live .man>div .redcircle {
+            width: 14px;
+            height: 14px;
+            margin-left: 3px;
+            margin-top: 3px;
+        }
+ 
+        .ContentOne .ContentTwo .live .man>div .peopleHand {
+            width: 17px;
+            height: 17px;
+            margin-left: 3px;
+            margin-top: 3px;
+ 
+        }
+ 
+        .ContentOne .ContentTwo .live .man>div .livesign {
+            width: 52px;
+            height: 19px;
+            background-color: #000;
+            color: #fff;
+            letter-spacing: 1px;
+            font-size: 12px;
+            box-shadow: 0 0 7px #a94847;
+            position: absolute;
+            left: 3px;
+            top: 3px;
+        }
+ 
+        .ContentOne .ContentTwo .live .man>div:hover .livesign {
+            color: #66C0F4;
+        }
+ 
+        .ContentOne .ContentTwo .live .man>div .name {
+            color: #c7d5e0;
+            font-size: 13px;
+            position: absolute;
+            left: 7px;
+            bottom: 10px;
+        }
+ 
+        .ContentOne .ContentTwo .live .man>div .people {
+            padding-left: 28px;
+            color: #c7d5e0;
+            font-size: 13px;
+            position: absolute;
+            right: 7px;
+            bottom: 10px;
+            vertical-align: center;
+            background-image: url("./steam Website/直播/icon_viewers.png");
+            background-repeat: no-repeat;
+            background-position-x: left;
+            background-position-y: 2px;
+        }
+ 
+        /* 直播结束 */
+        /* 低于四十块开始 */
+        .ContentOne .ContentTwo .fifteen {
+            width: 940px;
+            height: 210px;
+            position: absolute;
+            top: 1380px;
+            left: 290px;
+        }
+ 
+        .ContentOne .ContentTwo .fifteen .tittle {
+            font-size: 14px;
+            color: #fff;
+            letter-spacing: 0.03em;
+            margin-bottom: 10px;
+            padding-top: 2px;
+            margin-bottom: 10px;
+        }
+ 
+        .ContentOne .ContentTwo .fifteen .content .Game {
+            width: 940px;
+            height: 134px;
+            display: flex;
+            justify-content: space-between;
+        }
+ 
+        .ContentOne .ContentTwo .fifteen .content .Game>div {
+            width: 229px;
+            height: 134px;
+            background: linear-gradient(-45deg, rgba(64, 121, 153, 1) 5%, rgba(42, 62, 89, 1) 95%);
+            position: relative;
+        }
+ 
+        .ContentOne .ContentTwo .fifteen .content .Game>div>img {
+            width: 229px;
+            height: 103px;
+        }
+ 
+        .ContentOne .ContentTwo .fifteen .content .Game>div>div {
+            position: absolute;
+            right: 7px;
+            bottom: 8px;
+            color: #acdbf5;
+            padding: 0 9px;
+            background-color: rgba(20, 31, 44, 0.4);
+            border-radius: 1px;
+            font-size: 11px;
+        }
+ 
+        .ContentOne .ContentTwo .fifteen .content .Point {
+            width: 940px;
+            height: 41px;
+            /* background-color: #fff; */
+            position: absolute;
+            bottom: 0;
+            text-align: center;
+        }
+ 
+        .ContentOne .ContentTwo .fifteen .content .Point>div {
+            display: inline-block;
+            margin: 12px 0;
+            width: 15px;
+            height: 9px;
+            border-radius: 2px;
+            background-color: hsla(202, 60%, 100%, 0.2);
+            cursor: pointer;
+            font-size: 12px;
+        }
+ 
+        .ContentOne .ContentTwo .fifteen .content .Point>div:hover {
+            background-color: hsla(202, 60%, 100%, 0.3);
+        }
+ 
+        .ContentOne .ContentTwo .fifteen .content .Point>div:first-child {
+            background-color: hsla(202, 60%, 100%, 0.6);
+        }
+ 
+        .ContentOne .ContentTwo .fifteen .leftArrow {
+            width: 23px;
+            height: 36px;
+            position: absolute;
+            left: -46px;
+            top: 27%;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.3) 5%, rgba(0, 0, 0, 0) 95%);
+            padding: 36px 11px;
+        }
+ 
+        .ContentOne .ContentTwo .fifteen .leftArrow>div {
+            background-image: url("./steam Website/arrows.png");
+            width: 23px;
+            height: 36px;
+            background-position-x: 23px;
+        }
+ 
+        .ContentOne .ContentTwo .fifteen .rightArrow {
+            width: 23px;
+            height: 36px;
+            position: absolute;
+            right: -46px;
+            top: 27%;
+            background: linear-gradient(to left, rgba(0, 0, 0, 0.3) 5%, rgba(0, 0, 0, 0) 95%);
+            padding: 36px 11px;
+        }
+ 
+        .ContentOne .ContentTwo .fifteen .rightArrow>div {
+            background-image:url("img/arrows.png");
+            width: 23px;
+            height: 36px;
+        }
+ 
+        .ContentOne .ContentTwo .fifteen .leftArrow:hover {
+            background: linear-gradient(to right, rgba(69, 92, 112, 0.9) 5%, rgba(69, 92, 112, 0) 95%);
+        }
+ 
+        .ContentOne .ContentTwo .fifteen .rightArrow:hover {
+            background: linear-gradient(to left, rgba(69, 92, 112, 0.9) 5%, rgba(69, 92, 112, 0) 95%);
+        }
+ 
+        /* 低于四十块结束 */
+        /* 更新与优惠开始 */
+        .ContentOne .ContentTwo .updata {
+            width: 940px;
+            height: 460px;
+            position: absolute;
+            top: 1650px;
+            left: 290px;
+        }
+ 
+        .ContentOne .ContentTwo .updata .tittle {
+            font-size: 14px;
+            color: #fff;
+            letter-spacing: 0.03em;
+            margin-bottom: 10px;
+            padding-top: 2px;
+            margin-bottom: 10px;
+ 
+        }
+ 
+        .ContentOne .ContentTwo .updata .content {
+            width: 940px;
+            height: 422px;
+            display: flex;
+        }
+ 
+        .ContentOne .ContentTwo .updata .left {
+            width: 378px;
+            height: 422px;
+            background: linear-gradient(135deg, rgba(37, 49, 63, 1) 5%, rgba(54, 97, 125, 1) 95%);
+            cursor: pointer;
+        }
+ 
+        .ContentOne .ContentTwo .updata .left img {
+            width: 378px;
+            height: 398px;
+        }
+ 
+        .ContentOne .ContentTwo .updata .left>div {
+            text-align: right;
+            color: #ACDBF5;
+            font-size: 12px;
+            margin-right: 3px;
+        }
+ 
+        .ContentOne .ContentTwo .updata .right {
+            width: 562px;
+            height: 422px;
+            display: flex;
+            flex-wrap: wrap;
+            cursor: pointer;
+        }
+ 
+        .ContentOne .ContentTwo .updata .right>div {
+            width: 173px;
+            height: 206px;
+            margin: 0 0 10px 10px;
+            background: linear-gradient(135deg, rgba(37, 49, 63, 1) 5%, rgba(54, 97, 125, 1) 95%);
+        }
+ 
+        .ContentOne .ContentTwo .updata .right>div img {
+            width: 173px;
+            height: 182px;
+        }
+ 
+        .ContentOne .ContentTwo .updata .right>div .price .discount {
+            display: flex;
+            line-height: 15px;
+            justify-content: flex-end;
+            margin-right: 5px;
+        }
+ 
+        .ContentOne .ContentTwo .updata .right>div .price .discount>div:first-child {
+            color: #a4d007;
+            background: #4c6b22;
+            height: 15px;
+            line-height: 15px;
+            margin: 0 5px;
+            font-weight: 300;
+            font-size: 11px;
+        }
+ 
+        .ContentOne .ContentTwo .updata .right>div .price .prices {
+ 
+            height: 15px;
+            padding: 0px 5px 0px 7px;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: flex-start;
+        }
+ 
+        .ContentOne .ContentTwo .updata .right>div .price .prices>div:first-child {
+            color: #7193a6;
+            text-decoration: line-through;
+            font-size: 11px;
+            line-height: 13px;
+            height: 13px;
+        }
+ 
+        .ContentOne .ContentTwo .updata .right>div .price .prices>div:last-child {
+            color: #acdbf5;
+            font-size: 13px;
+            line-height: 13px;
+            height: 13px;
+        }
+ 
+        /* 更新与优惠结束 */
+        /* 底部开始 */
+        .bottom .bottomOne {
+            min-width: 972px;
+            height: 216px;
+            background-color: black;
+            position: relative;
+        }
+ 
+        .bottom .bottomOne>div:first-child {
+            font-size: 24px;
+            color: #67c1f5;
+            position: absolute;
+            top: 25px;
+            left: 50%;
+            margin-left: -84px;
+        }
+ 
+        .bottom .bottomOne>div:nth-child(2) {
+            font-size: 15px;
+            color: #8f98a0;
+            position: absolute;
+            top: 80px;
+            left: 50%;
+            margin-left: -80px;
+        }
+ 
+        .bottom .bottomOne>div:nth-child(3) {
+            width: 60px;
+            height: 26px;
+            padding: 3px 1px 1px 1px;
+            text-align: center;
+            font-size: 15px;
+            color: #D2E885;
+            background: linear-gradient(to bottom, #a4d007 5%, #536904 95%);
+            cursor: pointer;
+            border-radius: 4px;
+            border: 2px solid #172030;
+            position: absolute;
+            top: 120px;
+            left: 50%;
+            margin-left: -33px;
+        }
+ 
+        .bottom .bottomOne>div:nth-child(4) {
+            font-size: 15px;
+            color: #8f98a0;
+            position: absolute;
+            top: 170px;
+            left: 50%;
+            margin-left: -94px;
+        }
+ 
+        .bottom .bottomOne>div:nth-child(4)>span {
+            color: #ffffff;
+            cursor: pointer;
+            font-size: 15px;
+        }
+ 
+        .bottom .bottomOne>div:nth-child(4)>span:hover {
+            color: #66C0F4;
+        }
+ 
+        .bottom .bottomTwo {
+            min-width: 972px;
+            height: 166px;
+            background: #171a21;
+            position: relative;
+        }
+ 
+        .bottom .bottomTwo>hr:first-child {
+            position: absolute;
+            top: 30px;
+            left: 290px;
+            border-top: 1px solid #363c44;
+        }
+ 
+        .bottom .bottomTwo>.HR1 {
+            position: absolute;
+            top: 90px;
+            left: 290px;
+            border-top: 1px solid #363c44;
+        }
+ 
+        .bottom .bottomTwo>.val {
+            width: 88px;
+            height: 25px;
+            position: absolute;
+            top: 39px;
+            left: 290px;
+        }
+ 
+        .bottom .bottomTwo>.steam {
+            width: 92px;
+            height: 26px;
+            position: absolute;
+            top: 39px;
+            left: 1138px;
+        }
+ 
+        .bottom .bottomTwo>.Text1 {
+            color: #8F98A0;
+            font-size: 12px;
+            line-height: 16px;
+            position: absolute;
+            top: 39px;
+            left: 389px;
+        }
+ 
+        .bottom .bottomTwo>.Text2 {
+            color: #8F98A0;
+            font-size: 12px;
+            line-height: 16px;
+            position: absolute;
+            top: 55px;
+            left: 389px;
+        }
+ 
+        .bottom .bottomTwo>.Text3 {
+            color: #8F98A0;
+            line-height: 16px;
+            position: absolute;
+            top: 105px;
+            left: 290px;
+        }
+ 
+        .bottom .bottomTwo>.Text3>a {
+            font-size: 13px;
+            color: #C6D4DF;
+            text-decoration: none;
+        }
+ 
+        .bottom .bottomTwo>.Text2>a {
+            color: #C6D4DF;
+            text-decoration: none;
+        }
+ 
+        .bottom .bottomTwo>.Text3>a:hover,
+        .bottomTwo>.Text2>a:hover {
+            color: white;
+        }
+ 
+        /* 底部结束 */
+    </style>
+</head>
+ 
+<body>
+    <!-- 头部 -->
+    <div class="Header">
+        <div class="HeaderContent">
+            <img src="./steam Website/logo_steam.svg" alt="" class="Headerlogo">
+            <div class="HeaderMenu">
+                <a href="./notDone.html" class="store">商店</a>
+                <a href="./notDone.html">社区</a>
+                <a href="./notDone.html">关于</a>
+                <a href="./service.html">客服</a>
+                <div class="secondOne">
+                    <a href="./notDone.html">主页</a>
+                    <a href="./notDone.html">探索队列</a>
+                    <a href="./notDone.html">愿望单</a>
+                    <a href="./notDone.html">点数商店</a>
+                    <a href="./notDone.html">新闻</a>
+                    <a href="./notDone.html">统计数据</a>
+                </div>
+                <div class="secondTwo">
+                    <a href="./notDone.html">主页</a>
+                    <a href="./notDone.html">讨论</a>
+                    <a href="./notDone.html">创意工坊</a>
+                    <a href="./notDone.html">市场</a>
+                    <a href="./notDone.html">实况直播</a>
+                </div>
+            </div>
+            <div class="HeaderLoginMenu">
+                <div class="loadDown">
+                    <a href="./notDone.html">安装Steam</a>
+                </div>
+                <div class="login">登录&nbsp;&nbsp; |</div>
+ 
+                <div class="lang">&nbsp;语言</div>
+            </div>
+        </div>
+    </div>
+    <!-- 内容第一段 -->
+ 
+    <div class="ContentOne">
+        <div class="kong">
+            <div class="leftMenu">
+                <img src="./steam Website/steamcards_promo_02.png" alt="" class="leftMenup1"><br>
+                <ul>礼物卡
+                    <li><a href="./notDone.html">现已在 Steam 上推出</a></li>
+                </ul>
+                <ul>推荐
+                    <li>
+                        <div
+                            style="background-position: 0px 0px;background-image: url('./steam Website/store_menu_icons.png');">
+                        </div>
+                        <a href="./notDone.html">由好友推荐</a>
+                    </li>
+                    <li>
+                        <div
+                            style="background-position: -16px 0px;background-image: url('./steam Website/store_menu_icons.png');">
+                        </div>
+                        <a href="./notDone.html">由鉴赏家推荐</a>
+                    </li>
+                    <li>
+                        <div
+                            style="background-position: -32px 0px;background-image: url('./steam Website/store_menu_icons.png');">
+                        </div>
+                        <a href="./notDone.html">标签</a>
+                    </li>
+                </ul>
+                <ul>探索队列
+                    <li>
+                        <div
+                            style="background-position: -48px 0px;background-image: url('./steam Website/store_menu_icons.png');">
+                        </div>
+                        <a href="./notDone.html">推荐</a>
+                    </li>
+                    <li>
+                        <div
+                            style="background-position: -64px 0px;background-image: url('./steam Website/store_menu_icons.png');">
+                        </div>
+                        <a href="./notDone.html">新品</a>
+                    </li>
+                </ul>
+                <ul>浏览分类
+                    <li>
+                        <div
+                            style="background-position: -80px 0px;background-image: url('./steam Website/store_menu_icons.png');">
+                        </div>
+                        <a href="./notDone.html">热销商品</a>
+                    </li>
+                    <li>
+                        <div
+                            style="background-position: -112px 0px;background-image: url('./steam Website/store_menu_icons.png');">
+                        </div>
+                        <a href="./notDone.html">新品</a>
+                    </li>
+                    <li>
+                        <div
+                            style="background-position: -128px 0px;background-image: url('./steam Website/store_menu_icons.png');">
+                        </div>
+                        <a href="./notDone.html">即将推出</a>
+                    </li>
+                    <li>
+                        <div
+                            style="background-position: -144px 0px;background-image: url('./steam Website/store_menu_icons.png');">
+                        </div>
+                        <a href="./notDone.html">优惠</a>
+                    </li>
+                    <li>
+                        <div
+                            style="background-position: -160px 0px;background-image: url('./steam Website/store_menu_icons.png');">
+                        </div>
+                        <a href="./notDone.html">虚拟现实</a>
+                    </li>
+                    <li>
+                        <div
+                            style="background-position: -176px 0px;background-image: url('./steam Website/store_menu_icons.png');">
+                        </div>
+                        <a href="./notDone.html">支持控制器</a>
+                    </li>
+                </ul>
+                <ul>按类型浏览
+                    <li><a href="./notDone.html">免费游玩</a></li>
+                    <li><a href="./notDone.html">抢先体验</a></li>
+                    <li><a href="./notDone.html">休闲</a></li>
+                    <li><a href="./notDone.html">体育</a></li>
+                    <li><a href="./notDone.html">冒险</a></li>
+                    <li><a href="./notDone.html">动作</a></li>
+                    <li><a href="./notDone.html">大型多人在线</a></li>
+                    <li><a href="./notDone.html">模拟</a></li>
+                    <li><a href="./notDone.html">独立</a></li>
+                    <li><a href="./notDone.html">竞速</a></li>
+                    <li><a href="./notDone.html">策略</a></li>
+                    <li><a href="./notDone.html">角色扮演</a></li>
+                </ul>
+            </div>
+            <div class="storeNav">
+                <div class="store"></div>
+                <div class="new"></div>
+                <div class="kind"></div>
+ 
+
+                <ul>
+                    <li class="yourStore">您的商店</li>
+                    <li class="news">
+                        <img src="https://store.st.dl.pinyuncloud.com/public/images/v6/storemenu/new_white.svg?v=2"
+                            alt="">
+                        新鲜推荐
+                    </li>
+                    <li >
+                        <img src="https://store.st.dl.pinyuncloud.com/public/images/v6/storemenu/new_white.svg?v=2"
+                            alt="">类别
+                    </li>
+                    <li>点数商店</li>
+                    <li>新闻</li>
+                    <li>实验室</li>
+                    <li class="emptyNav">
+                        <div></div>
+                    </li>
+                    <li class="search">
+                        <div class="searchFor">
+                            <input type="text" placeholder="搜索" size="22" autocomplete="off">
+                            <img src="./steam Website/search_icon_btn.png" alt="">
+                        </div>
+ 
+                    </li>
+                </ul>
+ 
+                <div class="secondOne">
+                    <a href="./notDone.html">主页</a>
+                    <a href="./notDone.html">社区推荐</a>
+                    <a href="./notDone.html">最近一查看</a>
+                    <a href="./notDone.html">Steam鉴赏家</a>
+                </div>
+                <div class="secondTwo">
+                    <a href="./notDone.html">热销商品</a>
+                    <a href="./notDone.html">新品与热门商品</a>
+                    <a href="./notDone.html">当前特惠</a>
+                    <a href="./notDone.html">最近更新</a>
+                    <a href="./notDone.html">热门即将推出</a>
+                </div>
+                <div class="secondThree">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+         <div id="home_maincap_v7" class="carousel_container maincap">
+				<div class="carousel_items responsive_scroll_snap_ctn" data-panel="{&quot;bFocusRingRoot&quot;:true,&quot;flow-children&quot;:&quot;row&quot;}"><a class="store_main_capsule responsive_scroll_snap_start broadcast_capsule" data-manual-tracking="1" data-ds-appid="1329410" href="https://store.steampowered.com/app/1329410/MahjongSoul/?snr=1_4_4__129_1" data-ds-tagids="[1721,29482,1667,4064,12095,3978,113,4026,6650,17389,1663,1775,3859,5611,597,4085,4726,33572,9551,9]"><div class="capsule main_capsule" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1329410/capsule_616x353.jpg?t=1663903484" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1329410/capsule_616x353.jpg?t=1663903484&quot;);"><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1329410/ss_daf8934db8dacd51f2efcb1367bb39a93d5abe98.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1329410/ss_daf8934db8dacd51f2efcb1367bb39a93d5abe98.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1329410/ss_834d1e8959aa3db313b3f3a32a15a66ae455f53d.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1329410/ss_834d1e8959aa3db313b3f3a32a15a66ae455f53d.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1329410/ss_b9b9124e05b06f92ccfb36b5543fb91ad98d7e2a.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1329410/ss_b9b9124e05b06f92ccfb36b5543fb91ad98d7e2a.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1329410/ss_2071d1a9ac8fce48475ed46d5b474e62ac04736a.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1329410/ss_2071d1a9ac8fce48475ed46d5b474e62ac04736a.600x338.jpg&quot;);"></div></div><div class="info"><div class="app_name"><div>雀魂麻將(MahjongSoul)</div></div><div class="screenshots"><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1329410/ss_daf8934db8dacd51f2efcb1367bb39a93d5abe98.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1329410/ss_daf8934db8dacd51f2efcb1367bb39a93d5abe98.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1329410/ss_834d1e8959aa3db313b3f3a32a15a66ae455f53d.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1329410/ss_834d1e8959aa3db313b3f3a32a15a66ae455f53d.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1329410/ss_b9b9124e05b06f92ccfb36b5543fb91ad98d7e2a.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1329410/ss_b9b9124e05b06f92ccfb36b5543fb91ad98d7e2a.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1329410/ss_2071d1a9ac8fce48475ed46d5b474e62ac04736a.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1329410/ss_2071d1a9ac8fce48475ed46d5b474e62ac04736a.600x338.jpg&quot;);"></div></div></div><div class="reason"><div class="main default">现已推出</div><div class="additional"><div>热销商品</div></div></div><div class="discount_block  no_discount discount_block_inline" data-price-final="0" data-bundlediscount="0" data-discount="0"><div class="discount_prices"><div class="discount_final_price">免费开玩</div></div></div><div class="platforms"><span class="platform_img win"></span><span class="platform_img mac"></span></div></div></a><a class="store_main_capsule responsive_scroll_snap_start broadcast_capsule" data-manual-tracking="1" data-ds-appid="578080" href="https://store.steampowered.com/app/578080/PUBG_BATTLEGROUNDS/?snr=1_4_4__129_2" data-ds-tagids="[1662,1774,176981,3859,1663,1775,3814,19,3843,1708,1685,3839,9,493,3878,1697,5711,4026,599,1687]" data-ds-descids="[2,5]"><div class="capsule main_capsule" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/578080/capsule_616x353.jpg?t=1701911655" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/578080/capsule_616x353.jpg?t=1701911655&quot;);"><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/578080/ss_63bb4a659968c3417ddd2ea5fd82cd2143e458a0.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/578080/ss_63bb4a659968c3417ddd2ea5fd82cd2143e458a0.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/578080/ss_3857268f02113c5095ff7bc73f814bd80ade8c2e.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/578080/ss_3857268f02113c5095ff7bc73f814bd80ade8c2e.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/578080/ss_23af2e59855a833c22d0c11ca23a719f54a554ff.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/578080/ss_23af2e59855a833c22d0c11ca23a719f54a554ff.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/578080/ss_034714c0f118657ac694c5b9c43bb647ed9ec051.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/578080/ss_034714c0f118657ac694c5b9c43bb647ed9ec051.600x338.jpg&quot;);"></div></div><div class="info"><div class="app_name"><div>PUBG: BATTLEGROUNDS</div></div><div class="screenshots"><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/578080/ss_63bb4a659968c3417ddd2ea5fd82cd2143e458a0.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/578080/ss_63bb4a659968c3417ddd2ea5fd82cd2143e458a0.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/578080/ss_3857268f02113c5095ff7bc73f814bd80ade8c2e.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/578080/ss_3857268f02113c5095ff7bc73f814bd80ade8c2e.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/578080/ss_23af2e59855a833c22d0c11ca23a719f54a554ff.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/578080/ss_23af2e59855a833c22d0c11ca23a719f54a554ff.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/578080/ss_034714c0f118657ac694c5b9c43bb647ed9ec051.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/578080/ss_034714c0f118657ac694c5b9c43bb647ed9ec051.600x338.jpg&quot;);"></div></div></div><div class="reason"><div class="main default">现已推出</div><div class="additional"><div>热销商品</div></div></div><div class="discount_block  no_discount discount_block_inline" data-price-final="0" data-bundlediscount="0" data-discount="0"><div class="discount_prices"><div class="discount_final_price">免费开玩</div></div></div><div class="platforms"><span class="platform_img win"></span></div></div></a><a class="store_main_capsule responsive_scroll_snap_start broadcast_capsule" data-manual-tracking="1" data-ds-appid="730" href="https://store.steampowered.com/app/730/CounterStrike_2/?snr=1_4_4__129_3" data-ds-tagids="[1663,1774,3859,3878,19,5711,5055,1708,3839,1775,3843,1685,9,4168,1678,4026,4202,4175,1734,1669]" data-ds-descids="[2,5]"><div class="capsule main_capsule" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/730/capsule_616x353_schinese.jpg?t=1698860631" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/730/capsule_616x353_schinese.jpg?t=1698860631&quot;);"><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/730/ss_796601d9d67faf53486eeb26d0724347cea67ddc.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/730/ss_796601d9d67faf53486eeb26d0724347cea67ddc.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/730/ss_d830cfd0550fbb64d80e803e93c929c3abb02056.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/730/ss_d830cfd0550fbb64d80e803e93c929c3abb02056.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/730/ss_0f8cf82d019c614760fd20801f2bb4001da7ea77.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/730/ss_0f8cf82d019c614760fd20801f2bb4001da7ea77.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/730/ss_13bb35638c0267759276f511ee97064773b37a51.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/730/ss_13bb35638c0267759276f511ee97064773b37a51.600x338.jpg&quot;);"></div></div><div class="info"><div class="app_name"><div>Counter-Strike 2</div></div><div class="screenshots"><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/730/ss_796601d9d67faf53486eeb26d0724347cea67ddc.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/730/ss_796601d9d67faf53486eeb26d0724347cea67ddc.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/730/ss_d830cfd0550fbb64d80e803e93c929c3abb02056.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/730/ss_d830cfd0550fbb64d80e803e93c929c3abb02056.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/730/ss_0f8cf82d019c614760fd20801f2bb4001da7ea77.600x338.jpg"
+				style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/730/ss_0f8cf82d019c614760fd20801f2bb4001da7ea77.600x338.jpg;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/730/ss_13bb35638c0267759276f511ee97064773b37a51.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/730/ss_13bb35638c0267759276f511ee97064773b37a51.600x338.jpg&quot;);"></div></div></div><div class="reason"><div class="main default">现已推出</div><div class="additional"><div>热销商品</div></div></div><div class="discount_block  no_discount discount_block_inline" data-price-final="10300" data-bundlediscount="0" data-discount="0"><div class="discount_prices"><div class="discount_final_price">免费开玩</div></div></div><div class="platforms"><span class="platform_img win"></span><span class="platform_img linux"></span></div></div></a><a class="store_main_capsule responsive_scroll_snap_start broadcast_capsule" data-manual-tracking="1" data-ds-appid="1551360" href="https://store.steampowered.com/app/1551360/_5/?snr=1_4_4__129_4" data-ds-tagids="[699,1695,1644,3859,1100687,4175,21,599,3834,1773,3839,4166,701,1685,1775,3843,4182,5411,19,1697]"><div class="capsule main_capsule" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1551360/capsule_616x353.jpg?t=1702576144" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1551360/capsule_616x353.jpg?t=1702576144&quot;);"><div class="broadcast_live_stream_icon">直播</div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1551360/ss_b65236b365315ebb6da6114ce42cd74b59cab3c8.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1551360/ss_b65236b365315ebb6da6114ce42cd74b59cab3c8.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1551360/ss_00f0090174380eeaf8753bd3d1028b6772c3aebf.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1551360/ss_00f0090174380eeaf8753bd3d1028b6772c3aebf.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1551360/ss_0a13a7ccd38e7c3e6a5f1720050732833b53b6a8.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1551360/ss_0a13a7ccd38e7c3e6a5f1720050732833b53b6a8.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1551360/ss_3c16188972c826942f47991d91b0f6dc17e01fc9.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1551360/ss_3c16188972c826942f47991d91b0f6dc17e01fc9.600x338.jpg&quot;);"></div></div><div class="info"><div class="app_name"><div>极限竞速：地平线 5</div></div><div class="screenshots"><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1551360/ss_b65236b365315ebb6da6114ce42cd74b59cab3c8.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1551360/ss_b65236b365315ebb6da6114ce42cd74b59cab3c8.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1551360/ss_00f0090174380eeaf8753bd3d1028b6772c3aebf.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1551360/ss_00f0090174380eeaf8753bd3d1028b6772c3aebf.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1551360/ss_0a13a7ccd38e7c3e6a5f1720050732833b53b6a8.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1551360/ss_0a13a7ccd38e7c3e6a5f1720050732833b53b6a8.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1551360/ss_3c16188972c826942f47991d91b0f6dc17e01fc9.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1551360/ss_3c16188972c826942f47991d91b0f6dc17e01fc9.600x338.jpg&quot;);"></div></div></div><div class="reason"><div class="main default">现已推出</div><div class="additional"><div>热销商品</div></div></div><div class="discount_block  discount_block_inline" data-price-final="12400" data-bundlediscount="0" data-discount="50"><div class="discount_pct">-50%</div><div class="discount_prices"><div class="discount_original_price">¥ 248.00</div><div class="discount_final_price">¥ 124.00</div></div></div><div class="platforms"><span class="platform_img win"></span></div></div></a><a class="store_main_capsule responsive_scroll_snap_start broadcast_capsule" data-manual-tracking="1" data-ds-appid="2073850" href="https://store.steampowered.com/app/2073850/THE_FINALS/?snr=1_4_4__129_5" data-ds-tagids="[3859,1774,5363,1663,1775,3839,113,5711,19,4747,1708,4845,6426,4175,4155,3993,4236,5765,1702,176981]"><div class="capsule main_capsule" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/2073850/capsule_616x353.jpg?t=1702495066" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/2073850/capsule_616x353.jpg?t=1702495066&quot;);"><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/2073850/ss_63b3768695e3c2b5e1a492a6f8ea2624f23145ad.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/2073850/ss_63b3768695e3c2b5e1a492a6f8ea2624f23145ad.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/2073850/ss_28c10faa92c9c85cdf3036b82a72bf9801b5a979.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/2073850/ss_28c10faa92c9c85cdf3036b82a72bf9801b5a979.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/2073850/ss_d37be3e97f1dcddbd4db38ffe6eebd0fc724eec4.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/2073850/ss_d37be3e97f1dcddbd4db38ffe6eebd0fc724eec4.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/2073850/ss_c0c84668af6b422846a486941acc38ac49f8c4b1.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/2073850/ss_c0c84668af6b422846a486941acc38ac49f8c4b1.600x338.jpg&quot;);"></div></div><div class="info"><div class="app_name"><div>THE FINALS</div></div><div class="screenshots"><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/2073850/ss_63b3768695e3c2b5e1a492a6f8ea2624f23145ad.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/2073850/ss_63b3768695e3c2b5e1a492a6f8ea2624f23145ad.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/2073850/ss_28c10faa92c9c85cdf3036b82a72bf9801b5a979.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/2073850/ss_28c10faa92c9c85cdf3036b82a72bf9801b5a979.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/2073850/ss_d37be3e97f1dcddbd4db38ffe6eebd0fc724eec4.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/2073850/ss_d37be3e97f1dcddbd4db38ffe6eebd0fc724eec4.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/2073850/ss_c0c84668af6b422846a486941acc38ac49f8c4b1.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/2073850/ss_c0c84668af6b422846a486941acc38ac49f8c4b1.600x338.jpg&quot;);"></div></div></div><div class="reason"><div class="main default">现已推出</div><div class="additional"><div>热销商品</div></div></div><div class="discount_block  no_discount discount_block_inline" data-price-final="0" data-bundlediscount="0" data-discount="0"><div class="discount_prices"><div class="discount_final_price">免费开玩</div></div></div><div class="platforms"><span class="platform_img win"></span></div></div></a><a class="store_main_capsule responsive_scroll_snap_start broadcast_capsule focus" data-manual-tracking="1" data-ds-appid="1203220" href="https://store.steampowered.com/app/1203220/_/?snr=1_4_4__129_6" data-ds-tagids="[176981,3859,6915,1775,19,7208,128,1697,1662,4747,1743,1646,4608,4036,4085,21,5611,4667,113,4345]" data-ds-descids="[2,5]"><div class="capsule main_capsule" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1203220/capsule_616x353_schinese.jpg?t=1700102206" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1203220/capsule_616x353_schinese.jpg?t=1700102206&quot;);"><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1203220/ss_79d267999175411b32e3ad19499f9ba0710e10bd.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1203220/ss_79d267999175411b32e3ad19499f9ba0710e10bd.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1203220/ss_f031cfa839b5c3048f4bc92233b4c8472a16ef87.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1203220/ss_f031cfa839b5c3048f4bc92233b4c8472a16ef87.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1203220/ss_fde22b09239b66f3f37c15b6da6cdfd86b59d115.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1203220/ss_fde22b09239b66f3f37c15b6da6cdfd86b59d115.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1203220/ss_fede743af03b94e8ccd8c1d8f156916acdce7723.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1203220/ss_fede743af03b94e8ccd8c1d8f156916acdce7723.600x338.jpg&quot;);"></div></div><div class="info"><div class="app_name"><div>永劫无间</div></div><div class="screenshots"><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1203220/ss_79d267999175411b32e3ad19499f9ba0710e10bd.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1203220/ss_79d267999175411b32e3ad19499f9ba0710e10bd.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1203220/ss_f031cfa839b5c3048f4bc92233b4c8472a16ef87.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1203220/ss_f031cfa839b5c3048f4bc92233b4c8472a16ef87.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1203220/ss_fde22b09239b66f3f37c15b6da6cdfd86b59d115.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1203220/ss_fde22b09239b66f3f37c15b6da6cdfd86b59d115.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1203220/ss_fede743af03b94e8ccd8c1d8f156916acdce7723.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1203220/ss_fede743af03b94e8ccd8c1d8f156916acdce7723.600x338.jpg&quot;);"></div></div></div><div class="reason"><div class="main default">现已推出</div><div class="additional"><div>热销商品</div></div></div><div class="discount_block  no_discount discount_block_inline" data-price-final="0" data-bundlediscount="0" data-discount="0"><div class="discount_prices"><div class="discount_final_price">免费开玩</div></div></div><div class="platforms"><span class="platform_img win"></span></div></div></a><a class="store_main_capsule responsive_scroll_snap_start broadcast_capsule" data-manual-tracking="1" data-ds-appid="2195250" href="https://store.steampowered.com/app/2195250/EA_SPORTS_FC_24/?snr=1_4_4__129_7" data-ds-tagids="[701,1254546,7481,1775,3878,5055,6730,3859,4191,3839,599,4175,19,7368,1685,5350,3841,3843,4182,493]"><div class="capsule main_capsule" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/2195250/capsule_616x353_alt_assets_1_schinese.jpg?t=1702408161" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/2195250/capsule_616x353_alt_assets_1_schinese.jpg?t=1702408161&quot;);"><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/2195250/ss_eb8f5def662f28726c875e641cd5faff75e6b16d.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/2195250/ss_eb8f5def662f28726c875e641cd5faff75e6b16d.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/2195250/ss_6c1ef918ffe94050e72dcb2cfad3a95ee3d69f08.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/2195250/ss_6c1ef918ffe94050e72dcb2cfad3a95ee3d69f08.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/2195250/ss_96496b17bd35a97ceb926231e963762d3b86c3c8.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/2195250/ss_96496b17bd35a97ceb926231e963762d3b86c3c8.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/2195250/ss_f3d31c7cffc2a6ab42fb76aaac2bc9d5258bc142.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/2195250/ss_f3d31c7cffc2a6ab42fb76aaac2bc9d5258bc142.600x338.jpg&quot;);"></div></div><div class="info"><div class="app_name"><div>EA SPORTS FC™ 24</div></div><div class="screenshots"><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/2195250/ss_eb8f5def662f28726c875e641cd5faff75e6b16d.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/2195250/ss_eb8f5def662f28726c875e641cd5faff75e6b16d.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/2195250/ss_6c1ef918ffe94050e72dcb2cfad3a95ee3d69f08.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/2195250/ss_6c1ef918ffe94050e72dcb2cfad3a95ee3d69f08.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/2195250/ss_96496b17bd35a97ceb926231e963762d3b86c3c8.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/2195250/ss_96496b17bd35a97ceb926231e963762d3b86c3c8.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/2195250/ss_f3d31c7cffc2a6ab42fb76aaac2bc9d5258bc142.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/2195250/ss_f3d31c7cffc2a6ab42fb76aaac2bc9d5258bc142.600x338.jpg&quot;);"></div></div></div><div class="reason"><div class="main default">现已推出</div><div class="additional"><div>热销商品</div></div></div><div class="discount_block  no_discount discount_block_inline" data-price-final="24800" data-bundlediscount="0" data-discount="0"><div class="discount_prices"><div class="discount_final_price">¥ 248.00</div></div></div><div class="platforms"><span class="platform_img win"></span></div></div></a><a class="store_main_capsule responsive_scroll_snap_start broadcast_capsule" data-manual-tracking="1" data-ds-appid="582010" href="https://store.steampowered.com/app/582010/Monster_Hunter_World/?snr=1_4_4__129_8" data-ds-tagids="[1685,3859,19,1695,122,1697,4747,21,1684,4026,4182,4231,3834,1756,4711,4166,1646,4434,29482,1754]"><div class="capsule main_capsule" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/582010/capsule_616x353.jpg?t=1702858458" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/582010/capsule_616x353.jpg?t=1702858458&quot;);"><div class="broadcast_live_stream_icon">直播</div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/582010/ss_a262c53b8629de7c6547933dc0b49d31f4e1b1f1.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/582010/ss_a262c53b8629de7c6547933dc0b49d31f4e1b1f1.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/582010/ss_0dfb20f6f09c196bfc317bd517dc430ed6e6a2a4.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/582010/ss_0dfb20f6f09c196bfc317bd517dc430ed6e6a2a4.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/582010/ss_6b4986a37c7b5c185a796085c002febcdd5357b5.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/582010/ss_6b4986a37c7b5c185a796085c002febcdd5357b5.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/582010/ss_25902a9ae6977d6d10ebff20b87e8739e51c5b8b.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/582010/ss_25902a9ae6977d6d10ebff20b87e8739e51c5b8b.600x338.jpg&quot;);"></div></div><div class="info"><div class="app_name"><div>Monster Hunter: World</div></div><div class="screenshots"><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/582010/ss_a262c53b8629de7c6547933dc0b49d31f4e1b1f1.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/582010/ss_a262c53b8629de7c6547933dc0b49d31f4e1b1f1.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/582010/ss_0dfb20f6f09c196bfc317bd517dc430ed6e6a2a4.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/582010/ss_0dfb20f6f09c196bfc317bd517dc430ed6e6a2a4.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/582010/ss_6b4986a37c7b5c185a796085c002febcdd5357b5.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/582010/ss_6b4986a37c7b5c185a796085c002febcdd5357b5.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/582010/ss_25902a9ae6977d6d10ebff20b87e8739e51c5b8b.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/582010/ss_25902a9ae6977d6d10ebff20b87e8739e51c5b8b.600x338.jpg&quot;);"></div></div></div><div class="reason"><div class="main default">现已推出</div><div class="additional"><div>热销商品</div></div></div><div class="discount_block  discount_block_inline" data-price-final="6699" data-bundlediscount="0" data-discount="67"><div class="discount_pct">-67%</div><div class="discount_prices"><div class="discount_original_price">¥ 203.00</div><div class="discount_final_price">¥ 66.99</div></div></div><div class="platforms"><span class="platform_img win"></span></div></div></a><a class="store_main_capsule responsive_scroll_snap_start broadcast_capsule" data-manual-tracking="1" data-ds-appid="570" href="https://store.steampowered.com/app/570/Dota_2/?snr=1_4_4__129_9" data-ds-tagids="[113,1718,3859,9,5055,5711,3878,19,3843,1775,4026,1685,1676,1645,122,1684,4747,4711,4231,599]"><div class="capsule main_capsule" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/570/capsule_616x353.jpg?t=1702685169" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/570/capsule_616x353.jpg?t=1702685169&quot;);"><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/570/ss_c9118375a2400278590f29a3537769c986ef6e39.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/570/ss_c9118375a2400278590f29a3537769c986ef6e39.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/570/ss_7ab506679d42bfc0c0e40639887176494e0466d9.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/570/ss_7ab506679d42bfc0c0e40639887176494e0466d9.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/570/ss_ad8eee787704745ccdecdfde3a5cd2733704898d.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/570/ss_ad8eee787704745ccdecdfde3a5cd2733704898d.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/570/ss_f9ebafedaf2d5cfb80ef1f74baa18eb08cad6494.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/570/ss_f9ebafedaf2d5cfb80ef1f74baa18eb08cad6494.600x338.jpg&quot;);"></div></div><div class="info"><div class="app_name"><div>Dota 2</div></div><div class="screenshots"><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/570/ss_c9118375a2400278590f29a3537769c986ef6e39.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/570/ss_c9118375a2400278590f29a3537769c986ef6e39.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/570/ss_7ab506679d42bfc0c0e40639887176494e0466d9.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/570/ss_7ab506679d42bfc0c0e40639887176494e0466d9.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/570/ss_ad8eee787704745ccdecdfde3a5cd2733704898d.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/570/ss_ad8eee787704745ccdecdfde3a5cd2733704898d.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/570/ss_f9ebafedaf2d5cfb80ef1f74baa18eb08cad6494.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/570/ss_f9ebafedaf2d5cfb80ef1f74baa18eb08cad6494.600x338.jpg&quot;);"></div></div></div><div class="reason"><div class="main default">现已推出</div><div class="additional"><div>热销商品</div></div></div><div class="discount_block  no_discount discount_block_inline" data-price-final="0" data-bundlediscount="0" data-discount="0"><div class="discount_prices"><div class="discount_final_price">免费开玩</div></div></div><div class="platforms"><span class="platform_img win"></span><span class="platform_img mac"></span><span class="platform_img linux"></span></div></div></a><a class="store_main_capsule responsive_scroll_snap_start broadcast_capsule" data-manual-tracking="1" data-ds-appid="1172470" href="https://store.steampowered.com/app/1172470/Apex_Legends/?snr=1_4_4__129_10" data-ds-tagids="[113,176981,3859,1774,1663,3839,1775,19,5711,620519,1708,3942,1662,4747,4236,4136,1685,3854,4115,1667]"><div class="capsule main_capsule" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1172470/capsule_616x353.jpg?t=1702571386" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1172470/capsule_616x353.jpg?t=1702571386&quot;);"><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1172470/ss_cb0f3ced72e159a01f1410b17a1e4e61f9a8ed6b.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1172470/ss_cb0f3ced72e159a01f1410b17a1e4e61f9a8ed6b.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1172470/ss_b93d8cc8bf24eda3abe66a03b7a66c750458bebb.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1172470/ss_b93d8cc8bf24eda3abe66a03b7a66c750458bebb.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1172470/ss_e1f0cc66a7ec0687c028a25834614b810e9b56a5.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1172470/ss_e1f0cc66a7ec0687c028a25834614b810e9b56a5.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1172470/ss_cdb282ff2b5d0d26e05c2a40a57ff57d0aa73e47.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1172470/ss_cdb282ff2b5d0d26e05c2a40a57ff57d0aa73e47.600x338.jpg&quot;);"></div></div><div class="info"><div class="app_name"><div>Apex Legends™</div></div><div class="screenshots"><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1172470/ss_cb0f3ced72e159a01f1410b17a1e4e61f9a8ed6b.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1172470/ss_cb0f3ced72e159a01f1410b17a1e4e61f9a8ed6b.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1172470/ss_b93d8cc8bf24eda3abe66a03b7a66c750458bebb.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1172470/ss_b93d8cc8bf24eda3abe66a03b7a66c750458bebb.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1172470/ss_e1f0cc66a7ec0687c028a25834614b810e9b56a5.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1172470/ss_e1f0cc66a7ec0687c028a25834614b810e9b56a5.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1172470/ss_cdb282ff2b5d0d26e05c2a40a57ff57d0aa73e47.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1172470/ss_cdb282ff2b5d0d26e05c2a40a57ff57d0aa73e47.600x338.jpg&quot;);"></div></div></div><div class="reason"><div class="main default">现已推出</div><div class="additional"><div>热销商品</div></div></div><div class="discount_block  no_discount discount_block_inline" data-price-final="0" data-bundlediscount="0" data-discount="0"><div class="discount_prices"><div class="discount_final_price">免费开玩</div></div></div><div class="platforms"><span class="platform_img win"></span></div></div></a><a class="store_main_capsule responsive_scroll_snap_start broadcast_capsule" data-manual-tracking="1" data-ds-appid="1938090" href="https://store.steampowered.com/app/1938090/_/?snr=1_4_4__129_11" data-ds-tagids="[1663,3859,1774,19,4182,4168,3839,1678,5673,1708,4667,1685,4175,1742,4166,5611,3843,4345,3814,1697]" data-ds-descids="[2,5]"><div class="capsule main_capsule" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1938090/capsule_616x353_alt_assets_6_schinese.jpg?t=1702580894" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1938090/capsule_616x353_alt_assets_6_schinese.jpg?t=1702580894&quot;);"><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1938090/ss_fc670ddb10c9a24152a07cb5596457231d255335.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1938090/ss_fc670ddb10c9a24152a07cb5596457231d255335.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1938090/ss_d2d12caea56770a3842aafb24fe4e24394c443f2.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1938090/ss_d2d12caea56770a3842aafb24fe4e24394c443f2.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1938090/ss_7f4c9c08a0c89d53436370ef39957ba4e53e31e0.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1938090/ss_7f4c9c08a0c89d53436370ef39957ba4e53e31e0.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1938090/ss_7fc9df406831fa50c22211fa0909ff03abb1d825.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1938090/ss_7fc9df406831fa50c22211fa0909ff03abb1d825.600x338.jpg&quot;);"></div></div><div class="info"><div class="app_name"><div>使命召唤®</div></div><div class="screenshots"><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1938090/ss_fc670ddb10c9a24152a07cb5596457231d255335.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1938090/ss_fc670ddb10c9a24152a07cb5596457231d255335.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1938090/ss_d2d12caea56770a3842aafb24fe4e24394c443f2.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1938090/ss_d2d12caea56770a3842aafb24fe4e24394c443f2.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1938090/ss_7f4c9c08a0c89d53436370ef39957ba4e53e31e0.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1938090/ss_7f4c9c08a0c89d53436370ef39957ba4e53e31e0.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1938090/ss_7fc9df406831fa50c22211fa0909ff03abb1d825.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1938090/ss_7fc9df406831fa50c22211fa0909ff03abb1d825.600x338.jpg&quot;);"></div></div></div><div class="reason"><div class="main default">现已推出</div><div class="additional"><div>热销商品</div></div></div><div class="discount_block empty  discount_block_inline"></div><div class="platforms"><span class="platform_img win"></span></div></div></a><a class="store_main_capsule responsive_scroll_snap_start broadcast_capsule" data-manual-tracking="1" data-ds-appid="1174180" href="https://store.steampowered.com/app/1174180/Red_Dead_Redemption_2/?snr=1_4_4__129_12" data-ds-tagids="[1695,1742,1647,21,3859,19,4175,4182,1774,4166,6041,5411,3814,5611,1756,1697,4345,3810,3839,1663]" data-ds-descids="[5]"><div class="capsule main_capsule" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1174180/capsule_616x353.jpg?t=1695140956" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1174180/capsule_616x353.jpg?t=1695140956&quot;);"><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1174180/ss_4ce07ae360b166f0f650e9a895a3b4b7bf15e34f.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1174180/ss_4ce07ae360b166f0f650e9a895a3b4b7bf15e34f.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1174180/ss_668dafe477743f8b50b818d5bbfcec669e9ba93e.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1174180/ss_668dafe477743f8b50b818d5bbfcec669e9ba93e.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1174180/ss_66b553f4c209476d3e4ce25fa4714002cc914c4f.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1174180/ss_66b553f4c209476d3e4ce25fa4714002cc914c4f.600x338.jpg&quot;);"></div><div class="screenshot" data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1174180/ss_d1a8f5a69155c3186c65d1da90491fcfd43663d9.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1174180/ss_d1a8f5a69155c3186c65d1da90491fcfd43663d9.600x338.jpg&quot;);"></div></div><div class="info"><div class="app_name"><div>Red Dead Redemption 2</div></div><div class="screenshots"><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1174180/ss_4ce07ae360b166f0f650e9a895a3b4b7bf15e34f.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1174180/ss_4ce07ae360b166f0f650e9a895a3b4b7bf15e34f.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1174180/ss_668dafe477743f8b50b818d5bbfcec669e9ba93e.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1174180/ss_668dafe477743f8b50b818d5bbfcec669e9ba93e.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1174180/ss_66b553f4c209476d3e4ce25fa4714002cc914c4f.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1174180/ss_66b553f4c209476d3e4ce25fa4714002cc914c4f.600x338.jpg&quot;);"></div></div><div><div data-background-image-url="https://media.st.dl.eccdnx.com/steam/apps/1174180/ss_d1a8f5a69155c3186c65d1da90491fcfd43663d9.600x338.jpg" style="background-image: url(&quot;https://media.st.dl.eccdnx.com/steam/apps/1174180/ss_d1a8f5a69155c3186c65d1da90491fcfd43663d9.600x338.jpg&quot;);"></div></div></div><div class="reason"><div class="main default">现已推出</div><div class="additional"><div>热销商品</div></div></div><div class="discount_block  discount_block_inline" data-price-final="9207" data-bundlediscount="0" data-discount="67"><div class="discount_pct">-67%</div><div class="discount_prices"><div class="discount_original_price">¥ 279.00</div><div class="discount_final_price">¥ 92.07</div></div></div><div class="platforms"><span class="platform_img win"></span></div></div></a></div>
+				<div class="carousel_thumbs" data-usability="1"><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class="focus"></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div></div>
+				<div class="arrow left" data-usability="1"><div></div></div>
+				<div class="arrow right" data-usability="1"><div></div></div>
+			</div>
+                <div class="leftArrow">
+                    <div></div>
+                </div>
+                <div class="rightArrow">
+				<div><a href="#"></a></div>
+                </div>
+            </div>
+            <div class="specialOffers">
+                <div class="tittle">特别优惠
+                    <div class="btn">浏览更多</div>
+                </div>
+                <div class="content">
+                    <div class="left">
+                        <img src="./steam Website/特别优惠/特卖.jpg" alt="">
+                        <h4>发行商周末</h4>
+                    </div>
+                    <div class="mid">
+                        <div class="top">
+                            <img src="./steam Website/特别优惠/冰气.jpg" alt="">
+                        </div>
+                        <div class="bottom">
+                            <h4>免费周末试玩</h4>
+                            <h6>免费畅玩至&nbsp;8月17日上午1:00。</h6>
+                            <div class="money">
+                                <div class="discount">
+                                    <div>-71%</div>
+                                    <div class="prices">
+                                        <div>￥99</div>
+                                        <div>￥29</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="rightOne">
+                            <img src="./steam Website/特别优惠/火箭.jpg" alt="">
+                            <div class="time">
+                                <div>今日特惠！</div>
+                                <div class="trueTime" title="此优惠的剩余时间">33:33:33</div>
+                            </div>
+                            <div class="money">
+                                <div class="discount">
+                                    <div>-34%</div>
+                                    <div class="prices">
+                                        <div>￥70</div>
+                                        <div>￥46</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rightTwo">
+                            <img src="./steam Website/特别优惠/DOMM.jpg" alt="">
+                            <div class="money">
+                                <div class="discount">
+                                    <div>-75%</div>
+                                    <div class="prices">
+                                        <div>￥349</div>
+                                        <div>￥87</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="OffersPoint">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+                <div class="leftArrow">
+                    <div></div>
+                </div>
+                <div class="rightArrow">
+                    <div></div>
+                </div>
+            </div>
+            <div class="community">
+                <div class="tittleOne">社区推荐</div>
+                <div class="tittleTwo">本日推荐游戏</div>
+                <div class="game">
+                    <div class="gameP">
+                        <div class="price">￥248</div>
+                    </div>
+                    <div class="gameT">
+                        <div class="playerT">"我们需要创意工坊！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！"</div>
+                        <div class="tAll">阅读整篇评测</div>
+                        <div class="player">
+                            <div class="hand"></div>
+                            <div class="name">周毅火</div>
+                            <div class="hour">评测时已游玩 4.6小时</div>
+                            <div class="num">有 10人觉得这篇评价有价值</div>
+                        </div>
+                        <div class="btn">
+                            <div class="btnOne">&lt;</div>
+                            <div class="num">
+                                2 篇评测之 1</div>
+                            <div class="btnTwo">&gt;</div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="CommunityPoint">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="leftArrow">
+                    <div></div>
+                </div>
+                <div class="rightArrow">
+                    <div></div>
+                </div>
+            </div>
+            <div class="browseSt">
+                <div class="tittle">浏览 STEAM</div>
+                <div class="content">
+                    <div>新品</div>
+                    <div>优惠</div>
+                    <div>免费游戏</div>
+                    <div>按用户标签</div>
+                </div>
+ 
+            </div>
+            <div class="Vr">
+                <div class="tittle">热门 VR 游戏</div>
+                <div class="content">
+                    <div class="vrGame">
+                        <div><img src="./steam Website/VR 游戏/VR游戏-B1.jpg" alt="">
+                            <div>￥70</div>
+                        </div>
+                        <div><img src="./steam Website/VR 游戏/VR游戏-B2.jpg" alt="">
+                            <div>￥163</div>
+                        </div>
+                        <div><img src="./steam Website/VR 游戏/VR游戏-B3.jpg" alt="">
+                            <div>￥278</div>
+                        </div>
+                        <div><img src="./steam Website/VR 游戏/VR游戏-B4.jpg" alt="">
+                            <div>￥90</div>
+                        </div>
+                    </div>
+                    <div class="VrPoint">
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+                <div class="leftArrow">
+                    <div></div>
+                </div>
+                <div class="rightArrow">
+                    <div></div>
+                </div>
+            </div>
+            <!-- 内容第二段 -->
+            <div class="ContentTwo">
+                <div class="hard">
+                    <div class="hardHeader">
+                        <div>新品与热门商品</div>
+                        <div>热销商品</div>
+                        <div>热门即将推出</div>
+                        <div>优惠</div>
+                    </div>
+                    <span class="right1"></span>
+                    <span class="right2"></span>
+                    <span class="right3"></span>
+                    <span class="right4"></span>
+                    <span class="right5"></span>
+                    <span class="right6"></span>
+                    <span class="right7"></span>
+                    <span class="right8"></span>
+                    <span class="right9"></span>
+                    <span class="right10"></span>
+                    <div class="hardContent">
+                        <div class="contentHeader">
+                            查看更多：<a href="./notDone.html">新品</a>
+                        </div>
+                        <div class="hardContentGame">
+                            <div>
+                                <img src="./steam Website/难/Omno-头.jpg" alt="">
+                                <div class="gameName">Omno</div>
+                                <img src="./steam Website/icon_platform_win.png" alt="" class="gameIcon">
+                                <div class="label">冒险，探索，休闲，放松</div>
+                                <div class="price">￥67</div>
+                            </div>
+                            <div><img src="./steam Website/难/一生推-头.jpg" alt="">
+                                <div class="gameName">一生推不如一生恋~love or die~</div>
+                                <img src="./steam Website/icon_platform_win.png" alt="" class="gameIcon">
+                                <div class="label">冒险，视觉小说，恋爱模拟，自选历险体验</div>
+                                <div class="price">￥38</div>
+                            </div>
+                            <div><img src="./steam Website/难/上古之魂-头.jpg" alt="">
+                                <div class="gameName">上古之魂</div>
+                                <img src="./steam Website/icon_platform_win.png" alt="" class="gameIcon">
+                                <div class="label">类魂系列，黑暗奇幻，动作角色扮演，单人</div>
+                                <div class="price">￥70</div>
+                            </div>
+                            <div><img src="./steam Website/难/上行战场-头.jpg" alt="">
+                                <div class="gameName">上行战场 / The Ascent</div>
+                                <img src="./steam Website/icon_platform_win.png" alt="" class="gameIcon">
+                                <div class="label">动作，赛博朋克，俯视射击，角色扮演</div>
+                                <div class="price">￥148</div>
+                            </div>
+                            <div><img src="./steam Website/难/不知道-头.jpg" alt="">
+                                <div class="gameName">Paint the Town Red</div>
+                                <img src="./steam Website/icon_platform_win.png" alt="" class="gameIcon">
+                                <div class="label">动作，血腥，鲜血，格斗</div>
+                                <div class="price">￥70</div>
+                            </div>
+                            <div><img src="./steam Website/难/后末日-头.jpg" alt="">
+                                <div class="gameName">Chernobylite</div>
+                                <img src="./steam Website/icon_platform_win.png" alt="" class="gameIcon">
+                                <div class="label">角色扮演，生存，后末日，冒险</div>
+                                <div class="price">￥99</div>
+                            </div>
+                            <div><img src="./steam Website/难/废墟战旗-头.jpg" alt="">
+                                <div class="gameName">废墟战旗</div>
+                                <img src="./steam Website/icon_platform_win.png" alt="" class="gameIcon">
+                                <div class="label">卡牌构建式类 Rogue,卡牌战斗，卡牌游戏，困难</div>
+                                <div class="price">￥58</div>
+                            </div>
+                            <div><img src="./steam Website/难/第一-头.jpg" alt="">
+                                <div class="gameName">Coloring Game 4</div>
+                                <img src="./steam Website/icon_platform_win.png" alt="" class="gameIcon">
+                                <div class="label">免费，独立，休闲，设计与插画</div>
+                                <div class="price">免费游玩</div>
+                            </div>
+                            <div><img src="./steam Website/难/赋格曲-头.jpg" alt="">
+                                <div class="gameName">战场的赋格曲</div>
+                                <img src="./steam Website/icon_platform_win.png" alt="" class="gameIcon">
+                                <div class="label">狗，角色扮演，动漫，猫</div>
+                                <div class="price">￥116</div>
+                            </div>
+                            <div><img src="./steam Website/难/遗忘-头.jpg" alt="">
+                                <div class="gameName">遗忘之城</div>
+                                <img src="./steam Website/icon_platform_win.png" alt="" class="gameIcon">
+                                <div class="label">冒险，角色扮演，独立，探索</div>
+                                <div class="price">￥80</div>
+                            </div>
+                        </div>
+                    </div>
+ 
+                    <div class="gameRight1">
+                        <div class="gameName">Omno</div>
+                        <div class="num">
+                            <span>总体用户评测：</span>
+                            <div>特别好评&nbsp;<span>(88)</span></div>
+                        </div>
+                        <div class="label">
+                            <div>冒险</div>
+                            <div>放松</div>
+                            <div>探索</div>
+                            <div>休闲</div>
+                            <div>唯美</div>
+                        </div>
+                        <img src="./steam Website/难/Omno-1.jpg" alt="">
+                        <img src="./steam Website/难/Omno-2.jpg" alt="">
+                        <img src="./steam Website/难/Omno-3.jpg" alt="">
+                        <img src="./steam Website/难/Omno-4.jpg" alt="">
+                    </div>
+                    <div class="gameRight2">
+                        <div class="gameName">一生推不如一生恋~love or die~</div>
+                        <div class="num">
+                            <span>总体用户评测：</span>
+                            <div>特别好评&nbsp;<span>(80)</span></div>
+                        </div>
+                        <div class="label">
+                            <div>免费</div>
+                            <div>独立</div>
+                            <div>休闲</div>
+                            <div>设计与插画</div>
+                            <div>彩色</div>
+                        </div>
+                        <img src="./steam Website/难/一生推-1.jpg" alt="">
+                        <img src="./steam Website/难/一生推-2.jpg" alt="">
+                        <img src="./steam Website/难/一生推-3.jpg" alt="">
+                        <img src="./steam Website/难/一生推-4.jpg" alt="">
+                    </div>
+                    <div class="gameRight3">
+                        <div class="gameName">上古之魂</div>
+                        <div class="num">
+                            <span>总体用户评测：</span>
+                            <div>特别好评&nbsp;<span>(276)</span></div>
+                        </div>
+                        <div class="label">
+                            <div>类魂</div>
+                            <div>黑暗奇幻</div>
+                            <div>单人</div>
+                            <div>动作角色扮演</div>
+                        </div>
+                        <img src="./steam Website/难/上古之魂-1.jpg" alt="">
+                        <img src="./steam Website/难/上古之魂-2.jpg" alt="">
+                        <img src="./steam Website/难/上古之魂-3.jpg" alt="">
+                        <img src="./steam Website/难/上古之魂-4.jpg" alt="">
+                    </div>
+                    <div class="gameRight4">
+                        <div class="gameName">上行战场 / The Ascent</div>
+                        <div class="num">
+                            <span>总体用户评测：</span>
+                            <div>多半好评&nbsp;<span>(1,633)</span></div>
+                        </div>
+                        <div class="label">
+                            <div>动作</div>
+                            <div>赛博朋克</div>
+                            <div>俯视射击</div>
+                            <div>角色扮演</div>
+                        </div>
+                        <img src="./steam Website/难/上行战场-1.jpg" alt="">
+                        <img src="./steam Website/难/上行战场-2.jpg" alt="">
+                        <img src="./steam Website/难/上行战场-3.jpg" alt="">
+                        <img src="./steam Website/难/上行战场-4.jpg" alt="">
+                    </div>
+                    <div class="gameRight5">
+                        <div class="gameName">Paint the Town Red</div>
+                        <div class="num">
+                            <span>总体用户评测：</span>
+                            <div>特别好评&nbsp;<span>(11,855)</span></div>
+                        </div>
+                        <div class="label">
+                            <div>动作</div>
+                            <div>血腥</div>
+                            <div>单人</div>
+                            <div>动作角色扮演</div>
+                        </div>
+                        <img src="./steam Website/难/不知道-1.jpg" alt="">
+                        <img src="./steam Website/难/不知道-2.jpg" alt="">
+                        <img src="./steam Website/难/不知道-3.jpg" alt="">
+                        <img src="./steam Website/难/不知道-4.jpg" alt="">
+                    </div>
+                    <div class="gameRight6">
+                        <div class="gameName">Chernobylite</div>
+                        <div class="num">
+                            <span>总体用户评测：</span>
+                            <div>多半好评&nbsp;<span>(3,507)</span></div>
+                        </div>
+                        <div class="label">
+                            <div>角色扮演</div>
+                            <div>后末日</div>
+                            <div>生存</div>
+                            <div>冒险</div>
+                            <div>恐怖</div>
+                        </div>
+                        <img src="./steam Website/难/后末日-1.jpg" alt="">
+                        <img src="./steam Website/难/后末日-2.jpg" alt="">
+                        <img src="./steam Website/难/后末日-3.jpg" alt="">
+                        <img src="./steam Website/难/后末日-4.jpg" alt="">
+                    </div>
+                    <div class="gameRight7">
+                        <div class="gameName">废墟战旗</div>
+                        <div class="num">
+                            <span>总体用户评测：</span>
+                            <div>特别好评&nbsp;<span>(631)</span></div>
+                        </div>
+                        <div class="label">
+                            <div>卡牌构建类 Rogue</div>
+                            <div>卡牌战斗</div>
+                            <div>卡牌游戏</div>
+ 
+                        </div>
+                        <img src="./steam Website/难/废墟战旗-1.jpg" alt="">
+                        <img src="./steam Website/难/废墟战旗-2.jpg" alt="">
+                        <img src="./steam Website/难/废墟战旗-3.jpg" alt="">
+                        <img src="./steam Website/难/废墟战旗-4.jpg" alt="">
+                    </div>
+                    <div class="gameRight8">
+                        <div class="gameName">Coloring Game 4</div>
+                        <div class="num">
+                            <span>总体用户评测：</span>
+                            <div>特别好评&nbsp;<span>(229)</span></div>
+                        </div>
+                        <div class="label">
+                            <div>免费</div>
+                            <div>独立</div>
+                            <div>休闲</div>
+                            <div>设计与插画</div>
+                            <div>彩色</div>
+                        </div>
+                        <img src="./steam Website/难/第一-1.jpg" alt="">
+                        <img src="./steam Website/难/第一-2.jpg" alt="">
+                        <img src="./steam Website/难/第一-3.jpg" alt="">
+                        <img src="./steam Website/难/第一-4.jpg" alt="">
+                    </div>
+                    <div class="gameRight9">
+                        <div class="gameName">战场的赋格曲</div>
+                        <div class="num">
+                            <span>总体用户评测：</span>
+                            <div>特别好评&nbsp;<span>(116)</span></div>
+                        </div>
+                        <div class="label">
+                            <div>狗</div>
+                            <div>猫</div>
+                            <div>动漫</div>
+                            <div>可爱</div>
+                            <div>角色扮演</div>
+                        </div>
+                        <img src="./steam Website/难/赋格曲-1.jpg" alt="">
+                        <img src="./steam Website/难/赋格曲-2.jpg" alt="">
+                        <img src="./steam Website/难/赋格曲-3.jpg" alt="">
+                        <img src="./steam Website/难/赋格曲-4.jpg" alt="">
+                    </div>
+                    <div class="gameRight10">
+                        <div class="gameName">遗忘之城</div>
+                        <div class="num">
+                            <span>总体用户评测：</span>
+                            <div>特别好评&nbsp;<span>(287)</span></div>
+                        </div>
+                        <div class="label">
+                            <div>冒险</div>
+                            <div>角色扮演</div>
+                            <div>独立</div>
+                            <div>探索</div>
+                            <div>时空旅行</div>
+                        </div>
+                        <img src="./steam Website/难/遗忘-1.jpg" alt="">
+                        <img src="./steam Website/难/遗忘-2.jpg" alt="">
+                        <img src="./steam Website/难/遗忘-3.jpg" alt="">
+                        <img src="./steam Website/难/遗忘-4.jpg" alt="">
+                    </div>
+                </div>
+                <div class="live">
+                    <div class="tittle">正在实况直播的游戏</div>
+                    <div class="man">
+                        <div>
+                            <img src="./steam Website/直播/直播1.jpg" alt="">
+                            <img src="./steam Website/直播/play_icon80.png" alt="" class="btn">
+                            <div class="livesign">
+                                <img src="./steam Website/直播/下载.png" alt="" class="redcircle">
+                                直播
+                            </div>
+                            <div class="name">Grounded</div>
+                            <div class="people">
+                                12,048
+                            </div>
+                        </div>
+                        <div>
+                            <img src="./steam Website/直播/直播2.jpg" alt="">
+                            <img src="./steam Website/直播/play_icon80.png" alt="" class="btn">
+                            <div class="livesign">
+                                <img src="./steam Website/直播/下载.png" alt="" class="redcircle">
+                                直播
+                            </div>
+                            <div class="name">上行战场 / The Ascent</div>
+                            <div class="people">
+                                9,977
+                            </div>
+                        </div>
+                        <div>
+                            <img src="./steam Website/直播/直播3.jpg" alt="">
+                            <img src="./steam Website/直播/play_icon80.png" alt="" class="btn">
+                            <div class="livesign">
+                                <img src="./steam Website/直播/下载.png" alt="" class="redcircle">
+                                直播
+                            </div>
+                            <div class="name">Chernobylite</div>
+                            <div class="people">
+                                4,349
+                            </div>
+                        </div>
+                        <div>
+                            <img src="./steam Website/直播/直播4.jpg" alt="">
+                            <img src="./steam Website/直播/play_icon80.png" alt="" class="btn">
+                            <div class="livesign">
+                                <img src="./steam Website/直播/下载.png" alt="" class="redcircle">
+                                直播
+                            </div>
+                            <div class="name">Golf With Your Friends</div>
+                            <div class="people">
+                                3,589
+                            </div>
+                        </div>
+                        <div>
+                            <img src="./steam Website/直播/直播5.jpg" alt="">
+                            <img src="./steam Website/直播/play_icon80.png" alt="" class="btn">
+                            <div class="livesign">
+                                <img src="./steam Website/直播/下载.png" alt="" class="redcircle">
+                                直播
+                            </div>
+                            <div class="name">Russian Hentai 2</div>
+                            <div class="people">
+                                3,207
+                            </div>
+                        </div>
+                        <div>
+                            <img src="./steam Website/直播/直播6.jpg" alt="">
+                            <img src="./steam Website/直播/play_icon80.png" alt="" class="btn">
+                            <div class="livesign">
+                                <img src="./steam Website/直播/下载.png" alt="" class="redcircle">
+                                直播
+                            </div>
+                            <div class="name">Mini Motorways</div>
+                            <div class="people">
+                                2,390
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="fifteen">
+                    <div class="tittle">低于￥40</div>
+                    <div class="content">
+                        <div class="Game">
+                            <div><img src="./steam Website/低于40/求生之路-头.jpg" alt="">
+                                <div>￥70</div>
+                            </div>
+                            <div><img src="./steam Website/低于40/百合-头.jpg" alt="">
+                                <div>￥28</div>
+                            </div>
+                            <div><img src="./steam Website/低于40/斯盖尔-头.jpg" alt="">
+                                <div>￥40</div>
+                            </div>
+                            <div><img src="./steam Website/低于40/极品飞车-头.jpg" alt="">
+                                <div>￥36</div>
+                            </div>
+                        </div>
+                        <div class="Point">
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <div class="leftArrow">
+                            <div></div>
+                        </div>
+                        <div class="rightArrow">
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="updata">
+                    <div class="tittle">更新与优惠</div>
+                    <div class="content">
+                        <div class="left">
+                            <img src="./steam Website/更新/schinese.gif" alt="">
+                            <div class="price">单击查看详细信息</div>
+                        </div>
+                        <div class="right">
+                            <div><img src="./steam Website/更新/地狱.gif" alt="">
+                                <div class="price">
+                                    <div class="discount">
+                                        <div></div>
+                                        <div class="prices">
+                                            <div></div>
+                                            <div>￥149</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div><img src="./steam Website/更新/小人国.jpg" alt="">
+                                <div class="price">
+                                    <div class="discount">
+                                        <div></div>
+                                        <div class="prices">
+                                            <div></div>
+                                            <div>￥99</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div><img src="./steam Website/更新/往日不在.jpg" alt="">
+                                <div class="price">
+                                    <div class="discount">
+                                        <div>-20%</div>
+                                        <div class="prices">
+                                            <div>￥279</div>
+                                            <div>￥223</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div><img src="./steam Website/更新/最终幻想.jpg" alt="">
+                                <div class="price">
+                                    <div class="discount">
+                                        <div>-20%</div>
+                                        <div class="prices">
+                                            <div>￥84</div>
+                                            <div>￥67.2</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div><img src="./steam Website/更新/质量效应.jpg" alt="">
+                                <div class="price">
+                                    <div class="discount">
+                                        <div>-25%</div>
+                                        <div class="prices">
+                                            <div>￥70</div>
+                                            <div>￥59</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div><img src="./steam Website/更新/马喽.jpg" alt="">
+                                <div class="price">
+                                    <div class="discount">
+                                        <div></div>
+                                        <div class="prices">
+                                            <div></div>
+                                            <div>￥219</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 底部 -->
+    <div class="bottom">
+        <div class="bottomOne">
+            <div>正在寻找推荐？</div>
+            <div>登录以查看个性化推荐</div>
+            <div>登录</div>
+            <div>或者<span>注册</span>并免费加入 Steam</div>
+        </div>
+        <div class="bottomTwo">
+            <HR width=940px color=#c6d4df SIZE=1>
+            <img src="./steam Website/footerLogo_valve_new.png" alt="" class="val">
+            <img src="./steam Website/logo_steam_footer.png" alt="" class="steam">
+            <div class="Text1">©2021 Valve Corporation。保留所有权利。所有商标均为其在美国及其它国家/地区的各自持有者所有。</div>
+            <div class="Text2">所有的价格均已包含增值税（如适用）。&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="./notDone.html">隐私政策</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="./notDone.html">法律信息</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="./notDone.html">Steam 订户协议</a>
+                &nbsp; &nbsp;|&nbsp;&nbsp;
+                <a href="./notDone.html">退款</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="./notDone.html">Cookie</a>
+            </div>
+            <HR width=940px color=#c6d4df SIZE=1 class="HR1">
+ 
+            <div class="Text3">
+                <a href="./notDone.html">关于Valve</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="./notDone.html">工作机会</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="./notDone.html">Steamworks</a>
+                &nbsp; &nbsp;|&nbsp;&nbsp;
+                <a href="./notDone.html">Steam分销</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="./service.html">客服</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="./notDone.html">礼物卡</a>
+                &nbsp; &nbsp;|&nbsp;&nbsp;
+                <a href="./notDone.html">
+                    <img src="./steam Website/ico_facebook.gif">
+                    Steam</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="./notDone.html">
+                    <img src="./steam Website/ico_twitter.gif">@steam</a>
+            </div>
+        </div>
+    </div>
+</body>
+ 
+</html>
